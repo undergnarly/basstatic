@@ -519,6 +519,42 @@ a {
   margin-top: 8px;
 }
 
+/* ========== SECTION ABOUT (with bg image) ========== */
+.section-about {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px;
+}
+
+.section-about__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: brightness(0.35);
+  z-index: 0;
+}
+
+.section-about__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.section-about__content {
+  position: relative;
+  z-index: 2;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
 /* ========== ABOUT HERO ========== */
 .about-hero {
   position: relative;
