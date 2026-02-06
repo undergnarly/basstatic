@@ -143,7 +143,7 @@ a {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   background: rgba(10, 10, 10, 0.4);
-  margin-top: 100px;
+  margin-top: 180px;
 }
 
 .hero__title {
@@ -162,7 +162,7 @@ a {
 }
 
 .hero__artists {
-  font-size: 15px;
+  font-size: 19px;
   font-weight: 600;
   color: var(--text);
   letter-spacing: 0.5px;
@@ -378,6 +378,14 @@ a {
   margin-bottom: 16px;
 }
 
+.media-video {
+  width: 100%;
+  max-width: 100%;
+  border-radius: var(--radius);
+  margin-top: 16px;
+  display: block;
+}
+
 .video-embed iframe,
 .playlist-embed iframe {
   position: absolute;
@@ -511,9 +519,42 @@ a {
   margin-top: 8px;
 }
 
+/* ========== ABOUT HERO ========== */
+.about-hero {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.about-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: brightness(0.5);
+}
+
+.about-hero__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+  pointer-events: none;
+}
+
 /* ========== ABOUT / PAGE ========== */
 .page {
   padding-top: 72px;
+}
+
+.about-hero + .page {
+  padding-top: 0;
+  margin-top: -80px;
+  position: relative;
+  z-index: 2;
 }
 
 .page__section {
@@ -554,6 +595,13 @@ a {
   transform: translateY(-50%);
 }
 
+.section__img {
+  width: 100%;
+  border-radius: var(--radius);
+  margin-top: 24px;
+  display: block;
+}
+
 .divider {
   border: none;
   border-top: 1px solid var(--border);
@@ -584,8 +632,8 @@ a {
 /* ========== MOBILE HERO ADJUSTMENTS ========== */
 @media (max-width: 767px) {
   .hero__poster {
-    left: 12%;
-    right: 12%;
+    left: 0%;
+    right: 0%;
     border-radius: 16px;
     overflow: hidden;
   }
