@@ -581,6 +581,36 @@ a {
   display: none !important;
 }
 
+/* ========== MOBILE HERO ADJUSTMENTS ========== */
+@media (max-width: 767px) {
+  .hero__poster {
+    left: 12%;
+    right: 12%;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .hero__title {
+    margin-bottom: 130px;
+  }
+
+  .hero__sub {
+    margin: 0 auto 14px;
+  }
+
+  .hero__artists {
+    margin-bottom: 4px;
+  }
+
+  .hero__genres {
+    margin-bottom: 16px;
+  }
+
+  .hero__content {
+    padding: 0 24px 20px;
+  }
+}
+
 /* ========== DESKTOP (optional polish) ========== */
 @media (min-width: 768px) {
   .nav {
