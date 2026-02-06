@@ -88,23 +88,25 @@ a {
 
 /* ========== HERO ========== */
 .hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: relative;
   overflow: hidden;
-  padding-top: 56px; /* nav height */
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: flex-end;
 }
 
 .hero__poster {
-  width: 100%;
-  position: relative;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .hero__poster img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .hero__poster::after {
@@ -113,8 +115,8 @@ a {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 60%;
-  background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+  height: 70%;
+  background: linear-gradient(to top, var(--bg) 0%, rgba(10,10,10,0.6) 50%, transparent 100%);
   pointer-events: none;
 }
 
@@ -122,8 +124,8 @@ a {
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 0 24px 40px;
-  margin-top: -120px;
+  width: 100%;
+  padding: 0 24px 48px;
 }
 
 .hero__badge {
@@ -516,17 +518,6 @@ a {
 @media (min-width: 768px) {
   .nav {
     padding: 16px 40px;
-  }
-
-  .hero__poster {
-    max-width: 480px;
-    margin: 0 auto;
-    border-radius: 0 0 var(--radius) var(--radius);
-    overflow: hidden;
-  }
-
-  .hero__content {
-    margin-top: -140px;
   }
 
   .hero__sub {
