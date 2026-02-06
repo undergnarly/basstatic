@@ -511,6 +511,71 @@ a {
   margin-top: 8px;
 }
 
+/* ========== ABOUT / PAGE ========== */
+.page {
+  padding-top: 72px;
+}
+
+.page__section {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.section__text {
+  font-size: 15px;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.section__list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.section__list li {
+  font-size: 15px;
+  color: var(--text-dim);
+  padding: 6px 0;
+  padding-left: 16px;
+  position: relative;
+}
+
+.section__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translateY(-50%);
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.btn--outline {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  margin-top: 8px;
+}
+
+.btn--outline:hover {
+  background: rgba(255, 155, 0, 0.08);
+}
+
 /* ========== UTILITIES ========== */
 .hidden {
   display: none !important;

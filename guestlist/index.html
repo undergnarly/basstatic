@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest List &mdash; BASSTATIC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="/" class="nav__logo"><img src="/logo.webp" alt="BASSTATIC" class="nav__logo-img">BASSTATIC</a>
+    <div class="nav__links">
+      <a href="/#events">Events</a>
+      <a href="/about">About</a>
+      <a href="/guestlist" class="nav__cta">Guest List</a>
+    </div>
+  </nav>
+
+  <div class="page">
+    <section class="section page__section">
+      <h1 class="section__title">Guest List</h1>
+      <p class="section__sub">Free entry. Drop your info below to get on the list for the next event.</p>
+
+      <form class="form" id="guestlist-form" name="guestlist" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="guestlist">
+        <p class="hidden"><input name="bot-field"></p>
+        <div class="form__group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+
+        <div class="form__group">
+          <label for="contact-type">Preferred contact *</label>
+          <div class="form__radio-group">
+            <label class="form__radio">
+              <input type="radio" name="contact_type" value="instagram" checked>
+              <span>Instagram</span>
+            </label>
+            <label class="form__radio">
+              <input type="radio" name="contact_type" value="whatsapp">
+              <span>WhatsApp</span>
+            </label>
+            <label class="form__radio">
+              <input type="radio" name="contact_type" value="email">
+              <span>Email</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label for="contact">Contact *</label>
+          <input type="text" id="contact" name="contact" placeholder="@yourinsta" required>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--full">Get on the List</button>
+
+        <div class="form__success hidden" id="form-success">
+          <span class="form__check">&#10003;</span>
+          <p>You're on the list. See you there.</p>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <img src="/logo.webp" alt="BASSTATIC" class="footer__logo-img">
+    <span class="footer__logo">BASSTATIC</span>
+    <p class="footer__copy">&copy; 2020&ndash;2026 &mdash; Bali, Indonesia</p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -18,8 +18,8 @@ const placeholders = {
 document.querySelectorAll('input[name="contact_type"]').forEach(radio => {
   radio.addEventListener('change', () => {
     const input = document.getElementById('contact');
+    if (!input) return;
     input.placeholder = placeholders[radio.value] || '';
-    // switch input type for better mobile keyboards
     if (radio.value === 'email') {
       input.type = 'email';
     } else if (radio.value === 'whatsapp') {
@@ -31,31 +31,33 @@ document.querySelectorAll('input[name="contact_type"]').forEach(radio => {
 });
 
 // ========== FORM SUBMISSION (Netlify Forms) ==========
-document.getElementById('guestlist-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
+const form = document.getElementById('guestlist-form');
+if (form) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-  const form = e.target;
-  const submitBtn = form.querySelector('.btn--full');
+    const submitBtn = form.querySelector('.btn--full');
 
-  if (!form.name.value.trim() || !form.contact.value.trim()) return;
+    if (!form.name.value.trim() || !form.contact.value.trim()) return;
 
-  submitBtn.textContent = 'Sending...';
-  submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
 
-  try {
-    await fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(form)).toString()
-    });
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      });
 
-    form.querySelectorAll('.form__group, .btn--full, .hidden-field').forEach(el => el.classList.add('hidden'));
-    document.getElementById('form-success').classList.remove('hidden');
-  } catch (err) {
-    submitBtn.textContent = 'Something went wrong. Try again.';
-    submitBtn.disabled = false;
-  }
-});
+      form.querySelectorAll('.form__group, .btn--full, .hidden-field').forEach(el => el.classList.add('hidden'));
+      document.getElementById('form-success').classList.remove('hidden');
+    } catch (err) {
+      submitBtn.textContent = 'Something went wrong. Try again.';
+      submitBtn.disabled = false;
+    }
+  });
+}
 
 // ========== SMOOTH SCROLL FOR NAV ==========
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
