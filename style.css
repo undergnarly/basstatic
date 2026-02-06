@@ -93,7 +93,8 @@ a {
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero__poster {
@@ -107,7 +108,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center center;
 }
 
 .hero__poster::after {
@@ -116,8 +117,8 @@ a {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 70%;
-  background: linear-gradient(to top, var(--bg) 0%, rgba(10,10,10,0.6) 50%, transparent 100%);
+  height: 100%;
+  background: linear-gradient(to top, var(--bg) 0%, rgba(10,10,10,0.4) 40%, rgba(10,10,10,0.2) 100%);
   pointer-events: none;
 }
 
@@ -149,14 +150,14 @@ a {
   font-size: 48px;
   font-weight: 700;
   letter-spacing: -0.5px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .hero__sub {
   font-size: 14px;
   color: var(--text-dim);
   max-width: 280px;
-  margin: 0 auto 20px;
+  margin: 0 auto 32px;
   line-height: 1.6;
 }
 
