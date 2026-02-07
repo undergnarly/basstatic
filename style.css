@@ -49,10 +49,9 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
-  background: rgba(10, 10, 10, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
+  background: transparent;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .nav__logo {
@@ -143,13 +142,13 @@ a {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   background: rgba(10, 10, 10, 0.4);
-  margin-top: 100px;
+  margin-top: 180px;
 }
 
 .hero__title {
   font-size: 48px;
   font-weight: 700;
-  letter-spacing: -0.5px;
+  letter-spacing: 3.5px;
   margin-bottom: 360px;
 }
 
@@ -162,7 +161,7 @@ a {
 }
 
 .hero__artists {
-  font-size: 15px;
+  font-size: 19px;
   font-weight: 600;
   color: var(--text);
   letter-spacing: 0.5px;
@@ -378,6 +377,14 @@ a {
   margin-bottom: 16px;
 }
 
+.media-video {
+  width: 100%;
+  max-width: 100%;
+  border-radius: var(--radius);
+  margin-top: 16px;
+  display: block;
+}
+
 .video-embed iframe,
 .playlist-embed iframe {
   position: absolute;
@@ -511,9 +518,85 @@ a {
   margin-top: 8px;
 }
 
+/* ========== SECTION ABOUT (with bg image) ========== */
+.section-about {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px;
+}
+
+.section-about__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: brightness(0.25);
+  z-index: 0;
+}
+
+.section-about__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, var(--bg) 5%, rgba(10,10,10,0.6) 50%, rgba(10,10,10,0.4) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.section-about__content {
+  position: relative;
+  z-index: 2;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.section-about .section__text {
+  color: #ccc;
+}
+
+/* ========== ABOUT HERO ========== */
+.about-hero {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.about-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: brightness(0.5);
+}
+
+.about-hero__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+  pointer-events: none;
+}
+
 /* ========== ABOUT / PAGE ========== */
 .page {
   padding-top: 72px;
+}
+
+.about-hero + .page {
+  padding-top: 0;
+  margin-top: -80px;
+  position: relative;
+  z-index: 2;
 }
 
 .page__section {
@@ -554,6 +637,13 @@ a {
   transform: translateY(-50%);
 }
 
+.section__img {
+  width: 100%;
+  border-radius: var(--radius);
+  margin-top: 24px;
+  display: block;
+}
+
 .divider {
   border: none;
   border-top: 1px solid var(--border);
@@ -584,8 +674,8 @@ a {
 /* ========== MOBILE HERO ADJUSTMENTS ========== */
 @media (max-width: 767px) {
   .hero__poster {
-    left: 12%;
-    right: 12%;
+    left: 0%;
+    right: 0%;
     border-radius: 16px;
     overflow: hidden;
   }
