@@ -44,7 +44,7 @@ if (form) {
     submitBtn.disabled = true;
 
     try {
-      await fetch('/', {
+      await fetch(form.closest('form').getAttribute('action') || window.location.pathname, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(new FormData(form)).toString()
