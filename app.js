@@ -59,6 +59,48 @@ if (form) {
   });
 }
 
+// ========== BACKGROUND MUSIC ==========
+const bgMusic = document.getElementById('bg-music');
+const soundToggle = document.getElementById('sound-toggle');
+
+if (bgMusic && soundToggle) {
+  const iconOff = soundToggle.querySelector('.sound-icon--off');
+  const iconOn = soundToggle.querySelector('.sound-icon--on');
+  let musicStarted = false;
+
+  function startMusic() {
+    if (musicStarted) return;
+    bgMusic.volume = 0.4;
+    bgMusic.play().then(() => {
+      musicStarted = true;
+      iconOff.classList.add('hidden');
+      iconOn.classList.remove('hidden');
+    }).catch(() => {});
+    document.removeEventListener('click', startMusic);
+    document.removeEventListener('touchstart', startMusic);
+  }
+
+  document.addEventListener('click', startMusic);
+  document.addEventListener('touchstart', startMusic);
+
+  soundToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (!musicStarted) {
+      startMusic();
+      return;
+    }
+    if (bgMusic.paused) {
+      bgMusic.play();
+      iconOff.classList.add('hidden');
+      iconOn.classList.remove('hidden');
+    } else {
+      bgMusic.pause();
+      iconOn.classList.add('hidden');
+      iconOff.classList.remove('hidden');
+    }
+  });
+}
+
 // ========== SMOOTH SCROLL FOR NAV ==========
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {

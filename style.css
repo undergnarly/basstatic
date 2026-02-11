@@ -31,6 +31,8 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  max-width: 480px;
+  margin: 0 auto;
 }
 
 a {
@@ -42,8 +44,10 @@ a {
 .nav {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
   z-index: 100;
   display: flex;
   align-items: center;
@@ -127,6 +131,35 @@ a {
   text-align: center;
   width: 100%;
   padding: 0 24px 48px;
+}
+
+.sound-toggle {
+  position: absolute;
+  top: 70px;
+  right: 16px;
+  z-index: 10;
+  background: rgba(10, 10, 10, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-dim);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: color 0.3s;
+}
+
+.sound-toggle:hover {
+  color: var(--text);
+}
+
+.sound-icon {
+  width: 18px;
+  height: 18px;
 }
 
 .hero__badge {
