@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event &mdash; BASSTATIC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=3">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="/" class="nav__logo"><img src="/logo.webp" alt="BASSTATIC" class="nav__logo-img">BASSTATIC</a>
+    <div class="nav__links">
+      <a href="/#events">Events</a>
+      <a href="/about">About</a>
+      <a href="/#media">Media</a>
+    </div>
+  </nav>
+
+  <!-- AUDIO -->
+  <audio id="bg-music" loop preload="auto"></audio>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__poster">
+      <video id="event-video" autoplay loop muted playsinline></video>
+    </div>
+    <button class="sound-toggle" id="sound-toggle" aria-label="Toggle music">
+      <svg class="sound-icon sound-icon--off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+        <line x1="23" y1="9" x2="17" y2="15"/>
+        <line x1="17" y1="9" x2="23" y2="15"/>
+      </svg>
+      <svg class="sound-icon sound-icon--on hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+        <path d="M19.07 4.93a10 10 0 010 14.14"/>
+        <path d="M15.54 8.46a5 5 0 010 7.07"/>
+      </svg>
+    </button>
+    <div class="hero__content">
+      <div class="hero__badge" id="event-badge"></div>
+      <h1 class="hero__title">BASSTATIC</h1>
+      <p class="hero__sub">Underground bass music community.<br>Events, culture, sound.</p>
+      <div class="hero__artists" id="event-artists"></div>
+      <div class="hero__artists" id="event-mc"></div>
+      <div class="hero__genres" id="event-genres"></div>
+      <a id="event-cta" href="#" class="btn btn--primary" style="display:none">Get Tickets</a>
+    </div>
+  </section>
+
+  <!-- EVENT INFO -->
+  <section class="section" id="event-info">
+    <h2 class="section__title" id="event-title"></h2>
+    <p class="section__sub" id="event-detail"></p>
+
+    <div id="event-stream" style="display:none">
+      <h3 class="section__title" style="font-size:20px; margin-top:32px;">Stream Recording</h3>
+      <video id="event-stream-video" class="media-video" controls preload="metadata"></video>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <img src="/logo.webp" alt="BASSTATIC" class="footer__logo-img">
+    <span class="footer__logo">BASSTATIC</span>
+    <p class="footer__copy">&copy; 2020&ndash;2026 &mdash; Bali, Indonesia</p>
+  </footer>
+
+  <script src="/app.js"></script>
+  <script>
+    (async function() {
+      const id = parseInt(window.location.pathname.split('/events/')[1]);
+      if (!id) { document.getElementById('event-title').textContent = 'Event not found'; return; }
+
+      try {
+        const resp = await fetch('/data/events.json');
+        const data = await resp.json();
+        const ev = data.events.find(e => e.id === id);
+        if (!ev) { document.getElementById('event-title').textContent = 'Event not found'; return; }
+
+        const d = new Date(ev.date + 'T00:00:00');
+        const day = d.getDate();
+        const month = d.toLocaleString('en', { month: 'long' });
+        const year = d.getFullYear();
+
+        document.title = ev.title + ' — BASSTATIC';
+        document.getElementById('event-badge').textContent = day + ' ' + month + ' in ' + ev.venue;
+        document.getElementById('event-title').textContent = ev.title;
+        document.getElementById('event-detail').textContent = day + ' ' + month + ' ' + year + ' · ' + ev.venue + ', ' + ev.location;
+        document.getElementById('event-artists').innerHTML = ev.artists.join(' &middot; ');
+
+        if (ev.mc && ev.mc.length) {
+          document.getElementById('event-mc').innerHTML = ev.mc.join(' &middot; ');
+        }
+        document.getElementById('event-genres').innerHTML = ev.genres.join(' &middot; ');
+
+        if (ev.heroVideo) {
+          const vid = document.getElementById('event-video');
+          vid.src = '/' + ev.heroVideo;
+          vid.poster = ev.posterImage ? '/' + ev.posterImage : '';
+        }
+        if (ev.bgMusic) {
+          document.getElementById('bg-music').src = '/' + ev.bgMusic;
+        }
+        if (ev.ticketLink && ev.status === 'upcoming') {
+          const cta = document.getElementById('event-cta');
+          cta.href = ev.ticketLink;
+          cta.target = '_blank';
+          cta.style.display = '';
+        }
+        if (ev.streamRecording) {
+          document.getElementById('event-stream').style.display = '';
+          document.getElementById('event-stream-video').src = ev.streamRecording;
+        }
+      } catch(err) {
+        document.getElementById('event-title').textContent = 'Failed to load event';
+      }
+    })();
+  </script>
+</body>
+</html>

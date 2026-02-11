@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poster &mdash; BASSTATIC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=3">
+  <style>
+    .hero__badge { margin-top: 70px; }
+    @media (max-width: 767px) {
+      .hero__title { margin-bottom: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__poster">
+      <video id="poster-video" autoplay loop muted playsinline></video>
+    </div>
+    <div class="hero__content">
+      <div class="hero__badge" id="poster-badge"></div>
+      <h1 class="hero__title">BASSTATIC</h1>
+      <div class="hero__artists" id="poster-artists"></div>
+      <div class="hero__artists" id="poster-mc"></div>
+      <div class="hero__genres" id="poster-genres"></div>
+    </div>
+  </section>
+
+  <script>
+    (async function() {
+      const id = parseInt(window.location.pathname.split('/posters/')[1]);
+      if (!id) return;
+
+      try {
+        const resp = await fetch('/data/events.json');
+        const data = await resp.json();
+        const ev = data.events.find(e => e.id === id);
+        if (!ev) return;
+
+        const d = new Date(ev.date + 'T00:00:00');
+        const day = d.getDate();
+        const month = d.toLocaleString('en', { month: 'long' });
+
+        document.title = ev.title + ' — BASSTATIC';
+        document.getElementById('poster-badge').textContent = day + ' ' + month + ' in ' + ev.venue;
+        document.getElementById('poster-artists').innerHTML = ev.artists.join(' &middot; ');
+
+        if (ev.mc && ev.mc.length) {
+          document.getElementById('poster-mc').innerHTML = ev.mc.join(' &middot; ');
+        }
+        document.getElementById('poster-genres').innerHTML = ev.genres.join(' &middot; ');
+
+        const vid = document.getElementById('poster-video');
+        if (ev.heroVideo) {
+          vid.src = '/' + ev.heroVideo;
+          vid.poster = ev.posterImage ? '/' + ev.posterImage : '';
+        } else if (ev.posterImage) {
+          // Replace video with image
+          const img = document.createElement('img');
+          img.src = '/' + ev.posterImage;
+          img.alt = ev.title;
+          vid.parentNode.replaceChild(img, vid);
+        }
+      } catch(err) {
+        console.error('Failed to load poster data:', err);
+      }
+    })();
+  </script>
+</body>
+</html>

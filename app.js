@@ -1,3 +1,124 @@
+// ========== EVENT DATA LOADER ==========
+async function loadEventData() {
+  try {
+    const resp = await fetch('/data/events.json');
+    const data = await resp.json();
+    const activeId = data.settings.activeEventId;
+    const event = data.events.find(e => e.id === activeId);
+    if (!event) return;
+
+    // Hero badge
+    const badge = document.querySelector('.hero__badge');
+    if (badge) {
+      const d = new Date(event.date + 'T00:00:00');
+      const day = d.getDate();
+      const month = d.toLocaleString('en', { month: 'long' });
+      badge.textContent = `${day} ${month} in ${event.venue}`;
+    }
+
+    // Hero media
+    const heroVideo = document.querySelector('.hero__poster video');
+    if (heroVideo) {
+      heroVideo.src = '/' + event.heroVideo;
+      heroVideo.poster = '/' + event.posterImage;
+    }
+    const heroImg = document.querySelector('.hero__poster img');
+    if (heroImg && !heroVideo) {
+      heroImg.src = '/' + event.posterImage;
+    }
+
+    // Background music
+    const bgMusic = document.getElementById('bg-music');
+    if (bgMusic && event.bgMusic) {
+      bgMusic.src = '/' + event.bgMusic;
+    }
+
+    // Artists
+    const artistEls = document.querySelectorAll('.hero__artists');
+    if (artistEls.length >= 1) {
+      artistEls[0].innerHTML = event.artists.join(' &middot; ');
+    }
+    if (artistEls.length >= 2 && event.mc && event.mc.length) {
+      artistEls[1].innerHTML = event.mc.join(' &middot; ');
+    } else if (artistEls.length >= 2) {
+      artistEls[1].style.display = 'none';
+    }
+
+    // Genres
+    const genreEl = document.querySelector('.hero__genres');
+    if (genreEl) {
+      genreEl.innerHTML = event.genres.join(' &middot; ');
+    }
+
+    // Hero CTA button
+    const heroCta = document.querySelector('.hero__content > .btn--primary');
+    if (heroCta) {
+      if (event.guestlistEnabled && heroCta.getAttribute('href') === '#guestlist') {
+        // guestlist page — keep as is
+      } else if (event.ticketLink) {
+        heroCta.href = event.ticketLink;
+        heroCta.target = '_blank';
+        heroCta.rel = 'noopener';
+      }
+    }
+
+    // Event card
+    const cardDay = document.querySelector('.event-card__day');
+    const cardMonth = document.querySelector('.event-card__month');
+    const cardName = document.querySelector('.event-card__name');
+    const cardDetail = document.querySelector('.event-card__detail');
+    const cardBtn = document.querySelector('.event-card .btn--small');
+
+    if (cardDay && cardMonth) {
+      const d = new Date(event.date + 'T00:00:00');
+      cardDay.textContent = d.getDate();
+      cardMonth.textContent = d.toLocaleString('en', { month: 'short' }).toUpperCase();
+    }
+    if (cardName) cardName.textContent = event.title;
+    if (cardDetail) {
+      // Find the venue detail line (not the "Free Entry" line)
+      const details = document.querySelectorAll('.event-card__detail');
+      details.forEach(el => {
+        if (el.textContent.includes('Bali') || el.textContent.includes('Nuanu')) {
+          el.innerHTML = event.venue + ' &middot; ' + event.location;
+        }
+      });
+    }
+    if (cardBtn && event.ticketLink && !event.guestlistEnabled) {
+      cardBtn.href = event.ticketLink;
+      cardBtn.target = '_blank';
+      cardBtn.textContent = 'Get Tickets';
+    }
+
+    // Past events grid
+    const grid = document.getElementById('events-grid');
+    if (grid) {
+      const pastEvents = data.events.filter(e => e.id !== activeId && e.status === 'past');
+      pastEvents.forEach(ev => {
+        const d = new Date(ev.date + 'T00:00:00');
+        const card = document.createElement('div');
+        card.className = 'event-card';
+        card.innerHTML = `
+          <div class="event-card__date">
+            <span class="event-card__day">${d.getDate()}</span>
+            <span class="event-card__month">${d.toLocaleString('en', { month: 'short' }).toUpperCase()}</span>
+          </div>
+          <div class="event-card__info">
+            <h3 class="event-card__name">${ev.title}</h3>
+            <p class="event-card__detail">${ev.venue} &middot; ${ev.location}</p>
+            <a href="/events/${ev.id}" class="btn btn--small">View</a>
+          </div>`;
+        grid.appendChild(card);
+      });
+    }
+  } catch (err) {
+    console.error('Failed to load event data:', err);
+  }
+}
+
+// Load data as soon as possible
+loadEventData();
+
 // ========== MEDIA TABS ==========
 document.querySelectorAll('.media-tab').forEach(tab => {
   tab.addEventListener('click', () => {

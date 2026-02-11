@@ -1,0 +1,23 @@
+{
+  "settings": { "activeEventId": 1 },
+  "events": [
+    {
+      "id": 1,
+      "type": "full",
+      "status": "upcoming",
+      "title": "BASSTATIC: Chapter One",
+      "date": "2026-02-21",
+      "venue": "Nuanu, Ash",
+      "location": "Bali",
+      "artists": ["Roba Grow", "Muvs", "Vokvi"],
+      "mc": ["Nyoman MC", "Slingkyboyslim"],
+      "genres": ["UK Garage", "Dubstep", "Jungle", "Drum and Bass"],
+      "ticketLink": "https://megatix.co.id/events/basstatic-chapter-one",
+      "guestlistEnabled": true,
+      "heroVideo": "media/events/1/hero.mp4",
+      "posterImage": "media/events/1/poster.jpeg",
+      "bgMusic": "media/events/1/bg-music.mp3",
+      "streamRecording": null
+    }
+  ]
+}

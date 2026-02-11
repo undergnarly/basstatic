@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin &mdash; BASSTATIC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+
+  <!-- LOGIN SCREEN -->
+  <div id="login-screen" class="login-screen">
+    <h1>BASSTATIC</h1>
+    <div class="login-form">
+      <input type="password" id="login-password" placeholder="Admin password">
+      <button class="btn btn--primary btn--full" id="login-btn">Log In</button>
+    </div>
+  </div>
+
+  <!-- ADMIN PANEL -->
+  <div id="admin-panel" class="hidden">
+    <header class="admin-header">
+      <h1>BASSTATIC ADMIN</h1>
+      <button class="btn-logout" id="logout-btn">Log out</button>
+    </header>
+
+    <!-- Active Event Selector -->
+    <div class="settings-bar">
+      <label>Homepage event:</label>
+      <select id="active-event-select"></select>
+    </div>
+
+    <!-- Event List -->
+    <div class="event-list" id="event-list"></div>
+
+    <button class="btn btn--secondary btn--full" id="add-event-btn">+ New Event</button>
+
+    <!-- Event Editor -->
+    <div id="editor-wrap" class="hidden" style="margin-top: 24px;">
+      <div class="editor">
+        <h2 class="editor__title" id="editor-title">Edit Event</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Type</label>
+            <select id="ev-type">
+              <option value="full">Full Event</option>
+              <option value="poster_only">Poster Only</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Status</label>
+            <select id="ev-status">
+              <option value="draft">Draft</option>
+              <option value="upcoming">Upcoming</option>
+              <option value="past">Past</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" id="ev-title" placeholder="BASSTATIC: Chapter Two">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="ev-date">
+          </div>
+          <div class="form-group">
+            <label>Location</label>
+            <input type="text" id="ev-location" placeholder="Bali">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Venue</label>
+          <input type="text" id="ev-venue" placeholder="Nuanu, Ash">
+        </div>
+
+        <div class="form-group">
+          <label>Artists (comma-separated)</label>
+          <input type="text" id="ev-artists" placeholder="Roba Grow, Muvs, Vokvi">
+        </div>
+
+        <div class="form-group">
+          <label>MC (comma-separated)</label>
+          <input type="text" id="ev-mc" placeholder="Nyoman MC, Slingkyboyslim">
+        </div>
+
+        <div class="form-group">
+          <label>Genres (comma-separated)</label>
+          <input type="text" id="ev-genres" placeholder="UK Garage, Dubstep, Jungle, Drum and Bass">
+        </div>
+
+        <div class="form-group">
+          <label>Ticket Link</label>
+          <input type="url" id="ev-ticket" placeholder="https://megatix.co.id/events/...">
+        </div>
+
+        <div class="form-group">
+          <label>Guestlist Enabled</label>
+          <select id="ev-guestlist">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Poster Image</label>
+          <div class="file-upload" id="poster-upload">
+            <input type="file" accept="image/jpeg,image/png,image/webp" id="poster-file">
+            <div class="file-upload__label">Click or drop poster image here</div>
+            <img class="file-upload__preview hidden" id="poster-preview">
+          </div>
+          <div class="form-hint" id="poster-current"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Hero Video filename</label>
+          <input type="text" id="ev-video" placeholder="hero.mp4">
+          <div class="form-hint">Push video via git. Enter just the filename.</div>
+        </div>
+
+        <div class="form-group">
+          <label>Background Music filename</label>
+          <input type="text" id="ev-bgmusic" placeholder="bg-music.mp3">
+          <div class="form-hint">Push audio via git. Enter just the filename.</div>
+        </div>
+
+        <div class="form-group">
+          <label>Stream Recording URL</label>
+          <input type="text" id="ev-stream" placeholder="Leave empty if none">
+        </div>
+
+        <div class="actions">
+          <button class="btn btn--primary" id="save-btn">Save & Deploy</button>
+          <button class="btn btn--danger" id="delete-btn">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="/admin/admin.js"></script>
+</body>
+</html>
