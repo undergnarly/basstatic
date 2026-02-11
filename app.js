@@ -228,6 +228,8 @@ if (bgMusic && soundToggle) {
 
   let slowZoom = 1;
   let zoomDir = 1;
+  let snareFlash = 0;
+  let prevSnare = 0;
 
   function bassLoop() {
     requestAnimationFrame(bassLoop);
@@ -238,29 +240,50 @@ if (bgMusic && soundToggle) {
     // bin 1 ≈ 43Hz, bin 2 ≈ 86Hz — target sub around 45Hz
     let sub = (dataArray[1] * 0.8 + dataArray[2] * 0.2);
 
+    // Snare detection: bins 50-100 ≈ 2-4kHz
+    let snareSum = 0;
+    for (let i = 50; i < 100; i++) snareSum += dataArray[i];
+    const snareLevel = snareSum / 50;
+    const snareJump = snareLevel - prevSnare;
+    prevSnare = snareLevel;
+
+    // Trigger flash on sharp transient (snare hit)
+    if (snareJump > 30 && snareLevel > 80) {
+      snareFlash = Math.min(1, snareJump / 80);
+    }
+    // Fast decay
+    snareFlash *= 0.85;
+    if (snareFlash < 0.02) snareFlash = 0;
+
     const intensity = Math.min(1, sub / 160);
     const hasBass = intensity > 0.45;
+
+    let scale, bright, tx = 0, ty = 0;
 
     if (hasBass) {
       // Sub active: micro-vibration + zoom
       const shakeIntensity = Math.max(0, (intensity - 0.45) / 0.55);
       const shakeAmount = shakeIntensity * 1.2;
-      const shakeX = (Math.random() - 0.5) * shakeAmount;
-      const shakeY = (Math.random() - 0.5) * shakeAmount;
-      const scale = 1 + intensity * 0.1;
-      const bright = 0.6 + intensity * 0.7;
-      heroPoster.style.transform = `scale(${scale}) translate(${shakeX}px, ${shakeY}px)`;
-      heroPoster.style.filter = `brightness(${bright})`;
+      tx = (Math.random() - 0.5) * shakeAmount;
+      ty = (Math.random() - 0.5) * shakeAmount;
+      scale = 1 + intensity * 0.1;
+      bright = 0.6 + intensity * 0.7;
     } else {
       // No sub: slow gentle zoom
       slowZoom += zoomDir * 0.0001;
       if (slowZoom > 1.04) zoomDir = -1;
       if (slowZoom < 1) zoomDir = 1;
       const zoomProgress = (slowZoom - 1) / 0.04;
-      const bright = 0.7 + zoomProgress * 0.3;
-      heroPoster.style.transform = `scale(${slowZoom})`;
-      heroPoster.style.filter = `brightness(${bright})`;
+      scale = slowZoom;
+      bright = 0.7 + zoomProgress * 0.3;
     }
+
+    // Snare flash adds brightness + slight contrast kick
+    bright += snareFlash * 0.2;
+    const contrast = 1 + snareFlash * 0.12;
+
+    heroPoster.style.transform = `scale(${scale}) translate(${tx}px, ${ty}px)`;
+    heroPoster.style.filter = `brightness(${bright}) contrast(${contrast})`;
   }
 
   function startMusic() {
@@ -272,6 +295,7 @@ if (bgMusic && soundToggle) {
       initBassReactor();
       iconOff.classList.add('hidden');
       iconOn.classList.remove('hidden');
+      soundToggle.classList.add('playing');
     }).catch(() => {});
     document.removeEventListener('click', startMusic);
     document.removeEventListener('touchstart', startMusic);
@@ -294,10 +318,12 @@ if (bgMusic && soundToggle) {
       bgMusic.play();
       iconOff.classList.add('hidden');
       iconOn.classList.remove('hidden');
+      soundToggle.classList.add('playing');
     } else {
       bgMusic.pause();
       iconOn.classList.add('hidden');
       iconOff.classList.remove('hidden');
+      soundToggle.classList.remove('playing');
     }
   });
 }

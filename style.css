@@ -153,6 +153,16 @@ a {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   transition: color 0.3s;
+  animation: sound-pulse 2s ease-in-out infinite;
+}
+
+.sound-toggle.playing {
+  animation: none;
+}
+
+@keyframes sound-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(255, 155, 0, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(255, 155, 0, 0.7), 0 0 40px rgba(255, 155, 0, 0.2); }
 }
 
 .sound-toggle:hover {
