@@ -68,11 +68,25 @@ if (bgMusic && soundToggle) {
   const iconOn = soundToggle.querySelector('.sound-icon--on');
   let musicStarted = false;
 
+  const maxVolume = 0.4;
+  const fadeDuration = 3000;
+  const fadeSteps = 30;
+
+  function fadeIn() {
+    let step = 0;
+    const interval = setInterval(() => {
+      step++;
+      bgMusic.volume = maxVolume * (step / fadeSteps);
+      if (step >= fadeSteps) clearInterval(interval);
+    }, fadeDuration / fadeSteps);
+  }
+
   function startMusic() {
     if (musicStarted) return;
-    bgMusic.volume = 0.4;
+    bgMusic.volume = 0;
     bgMusic.play().then(() => {
       musicStarted = true;
+      fadeIn();
       iconOff.classList.add('hidden');
       iconOn.classList.remove('hidden');
     }).catch(() => {});
@@ -80,6 +94,10 @@ if (bgMusic && soundToggle) {
     document.removeEventListener('touchstart', startMusic);
   }
 
+  // Try autoplay immediately
+  startMusic();
+
+  // Fallback: play on first interaction if browser blocked autoplay
   document.addEventListener('click', startMusic);
   document.addEventListener('touchstart', startMusic);
 
