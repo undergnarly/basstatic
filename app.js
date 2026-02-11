@@ -81,12 +81,74 @@ if (bgMusic && soundToggle) {
     }, fadeDuration / fadeSteps);
   }
 
+  // Bass-reactive video zoom
+  let audioCtx, analyser, dataArray, source;
+  const heroVideo = document.querySelector('.hero__poster video');
+  const heroPoster = document.querySelector('.hero__poster');
+
+  function initBassReactor() {
+    if (audioCtx) return;
+    try {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      analyser = audioCtx.createAnalyser();
+      analyser.fftSize = 1024;
+      analyser.smoothingTimeConstant = 0.4;
+      source = audioCtx.createMediaElementSource(bgMusic);
+      source.connect(analyser);
+      analyser.connect(audioCtx.destination);
+      dataArray = new Uint8Array(analyser.frequencyBinCount);
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      console.log('Bass reactor started');
+      bassLoop();
+    } catch (e) {
+      console.error('Bass reactor failed:', e);
+    }
+  }
+
+  let slowZoom = 1;
+  let zoomDir = 1;
+
+  function bassLoop() {
+    requestAnimationFrame(bassLoop);
+    if (!heroPoster || !analyser) return;
+    analyser.getByteFrequencyData(dataArray);
+
+    // fftSize 1024 @ 44100Hz = ~43Hz per bin
+    // bin 1 ≈ 43Hz, bin 2 ≈ 86Hz — target sub around 45Hz
+    let sub = (dataArray[1] * 0.8 + dataArray[2] * 0.2);
+
+    const intensity = Math.min(1, sub / 160);
+    const hasBass = intensity > 0.45;
+
+    if (hasBass) {
+      // Sub active: micro-vibration + zoom
+      const shakeIntensity = Math.max(0, (intensity - 0.45) / 0.55);
+      const shakeAmount = shakeIntensity * 1.2;
+      const shakeX = (Math.random() - 0.5) * shakeAmount;
+      const shakeY = (Math.random() - 0.5) * shakeAmount;
+      const scale = 1 + intensity * 0.1;
+      const bright = 0.6 + intensity * 0.7;
+      heroPoster.style.transform = `scale(${scale}) translate(${shakeX}px, ${shakeY}px)`;
+      heroPoster.style.filter = `brightness(${bright})`;
+    } else {
+      // No sub: slow gentle zoom
+      slowZoom += zoomDir * 0.0001;
+      if (slowZoom > 1.04) zoomDir = -1;
+      if (slowZoom < 1) zoomDir = 1;
+      const zoomProgress = (slowZoom - 1) / 0.04;
+      const bright = 0.7 + zoomProgress * 0.3;
+      heroPoster.style.transform = `scale(${slowZoom})`;
+      heroPoster.style.filter = `brightness(${bright})`;
+    }
+  }
+
   function startMusic() {
     if (musicStarted) return;
     bgMusic.volume = 0;
     bgMusic.play().then(() => {
       musicStarted = true;
       fadeIn();
+      initBassReactor();
       iconOff.classList.add('hidden');
       iconOn.classList.remove('hidden');
     }).catch(() => {});

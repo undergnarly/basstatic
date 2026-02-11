@@ -104,6 +104,8 @@ a {
   position: absolute;
   inset: 0;
   z-index: 0;
+  will-change: transform, filter;
+  overflow: hidden;
 }
 
 .hero__poster video,
