@@ -390,7 +390,7 @@ a {
   position: relative;
   border-radius: var(--radius);
   overflow: hidden;
-  height: 360px;
+  aspect-ratio: 3 / 4;
   cursor: pointer;
 }
 
