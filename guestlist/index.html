@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BASSTATIC</title>
+  <title>Guest List &mdash; BASSTATIC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 
   <!-- NAV -->
   <nav class="nav">
-    <a href="/guestlist" class="nav__logo"><img src="/logo.webp" alt="BASSTATIC" class="nav__logo-img">BASSTATIC</a>
+    <a href="/" class="nav__logo"><img src="/logo.webp" alt="BASSTATIC" class="nav__logo-img">BASSTATIC</a>
     <div class="nav__links">
       <a href="#events">Events</a>
       <a href="/about">About</a>
@@ -30,18 +30,6 @@
     <div class="hero__poster">
       <video src="/media/events/1/hero.mp4" autoplay loop muted playsinline poster="/media/events/1/poster.jpeg"></video>
     </div>
-    <button class="sound-toggle" id="sound-toggle" aria-label="Toggle music">
-      <svg class="sound-icon sound-icon--off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
-        <line x1="23" y1="9" x2="17" y2="15"/>
-        <line x1="17" y1="9" x2="23" y2="15"/>
-      </svg>
-      <svg class="sound-icon sound-icon--on hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
-        <path d="M19.07 4.93a10 10 0 010 14.14"/>
-        <path d="M15.54 8.46a5 5 0 010 7.07"/>
-      </svg>
-    </button>
     <div class="hero__content">
       <div class="hero__badge">21 February in Nuanu, Ash</div>
       <h1 class="hero__title">BASSTATIC</h1>
@@ -53,9 +41,17 @@
     </div>
   </section>
 
-  <!-- NEXT EVENT -->
+  <!-- LINEUP -->
+  <section class="section" id="lineup">
+    <h2 class="section__title">Line-Up</h2>
+    <p class="section__sub" id="event-subtitle"></p>
+    <div class="lineup-slider" id="lineup-slider"></div>
+    <div class="lineup-dots" id="lineup-dots"></div>
+  </section>
+
+  <!-- EVENT INFO -->
   <section class="section" id="events">
-    <h2 class="section__title">Next Event</h2>
+    <h2 class="section__title">Event Info</h2>
 
     <div class="event-card event-card--featured">
       <div class="event-card__date">
@@ -66,11 +62,9 @@
         <h3 class="event-card__name">BASSTATIC: Chapter One</h3>
         <p class="event-card__detail">Free Entry &middot; Guest List Only</p>
         <p class="event-card__detail">Nuanu, Ash &middot; Bali</p>
+        <p class="event-card__detail" id="event-doors"></p>
         <a href="#guestlist" class="btn btn--small">Get on the list</a>
       </div>
-    </div>
-
-    <div class="events-grid" id="events-grid">
     </div>
   </section>
 
@@ -127,6 +121,7 @@
       <h2 class="section__title">What is Basstatic</h2>
       <p class="section__text">Basstatic is a cultural movement centered around bass, movement, and inner state. A space where music becomes a tool for release, expression, and transformation. Through deep bass and conscious movement, the dance becomes a form of meditation, a reset, and a way to return to an authentic state.</p>
       <a href="/about" class="btn btn--outline">Read More</a>
+      <a href="https://t.me/basstatic_community" target="_blank" rel="noopener" class="btn btn--primary" style="margin-top: 12px; margin-left: 8px;">Join Community</a>
     </div>
   </section>
 
@@ -140,8 +135,8 @@
     </div>
 
     <div class="media-content" id="tab-videos">
-      <video class="media-video" src="/videos/phangan.mp4" controls preload="metadata"></video>
       <video class="media-video" src="/videos/fest-vert.mp4" controls preload="metadata"></video>
+      <video class="media-video" src="/videos/phangan.mp4" controls preload="metadata"></video>
     </div>
 
     <div class="media-content hidden" id="tab-playlists">
@@ -155,6 +150,20 @@
     <span class="footer__logo">BASSTATIC</span>
     <p class="footer__copy">&copy; 2020&ndash;2026 &mdash; Bali, Indonesia</p>
   </footer>
+
+  <!-- SOUND TOGGLE (floating) -->
+  <button class="sound-toggle" id="sound-toggle" aria-label="Toggle music">
+    <svg class="sound-icon sound-icon--off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+      <line x1="23" y1="9" x2="17" y2="15"/>
+      <line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+    <svg class="sound-icon sound-icon--on hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+      <path d="M19.07 4.93a10 10 0 010 14.14"/>
+      <path d="M15.54 8.46a5 5 0 010 7.07"/>
+    </svg>
+  </button>
 
   <script src="/app.js"></script>
 </body>
