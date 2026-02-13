@@ -136,10 +136,10 @@ a {
 }
 
 .sound-toggle {
-  position: absolute;
-  top: 70px;
-  right: 16px;
-  z-index: 10;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99;
   background: rgba(10, 10, 10, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 50%;
@@ -384,8 +384,9 @@ a {
 .lineup-slider::-webkit-scrollbar { display: none; }
 
 .lineup-card {
-  flex: 0 0 280px;
-  scroll-snap-align: start;
+  flex: 0 0 85%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
   position: relative;
   border-radius: var(--radius);
   overflow: hidden;
