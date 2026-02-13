@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico">
   <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
@@ -52,9 +53,17 @@
     </div>
   </section>
 
-  <!-- NEXT EVENT -->
+  <!-- LINEUP -->
+  <section class="section" id="lineup">
+    <h2 class="section__title">Line-Up</h2>
+    <p class="section__sub" id="event-subtitle"></p>
+    <div class="lineup-slider" id="lineup-slider"></div>
+    <div class="lineup-dots" id="lineup-dots"></div>
+  </section>
+
+  <!-- EVENT INFO -->
   <section class="section" id="events">
-    <h2 class="section__title">Next Event</h2>
+    <h2 class="section__title">Event Info</h2>
 
     <div class="event-card event-card--featured">
       <div class="event-card__date">
@@ -64,6 +73,8 @@
       <div class="event-card__info">
         <h3 class="event-card__name">BASSTATIC: Chapter One</h3>
         <p class="event-card__detail">Nuanu, Ash &middot; Bali</p>
+        <p class="event-card__detail" id="event-doors"></p>
+        <p class="event-card__detail" id="event-prices"></p>
         <a href="https://megatix.co.id/events/basstatic-chapter-one" target="_blank" rel="noopener" class="btn btn--small">Get Tickets</a>
       </div>
     </div>

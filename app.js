@@ -33,13 +33,16 @@ async function loadEventData() {
       bgMusic.src = '/' + event.bgMusic;
     }
 
-    // Artists
+    // Artists (now objects with name/role/bio)
+    const artistNames = event.artists.map(a => typeof a === 'string' ? a : a.name);
+    const mcNames = (event.mc || []).map(a => typeof a === 'string' ? a : a.name);
+
     const artistEls = document.querySelectorAll('.hero__artists');
     if (artistEls.length >= 1) {
-      artistEls[0].innerHTML = event.artists.join(' &middot; ');
+      artistEls[0].innerHTML = artistNames.join(' &middot; ');
     }
-    if (artistEls.length >= 2 && event.mc && event.mc.length) {
-      artistEls[1].innerHTML = event.mc.join(' &middot; ');
+    if (artistEls.length >= 2 && mcNames.length) {
+      artistEls[1].innerHTML = mcNames.join(' &middot; ');
     } else if (artistEls.length >= 2) {
       artistEls[1].style.display = 'none';
     }
@@ -88,6 +91,87 @@ async function loadEventData() {
       cardBtn.href = event.ticketLink;
       cardBtn.target = '_blank';
       cardBtn.textContent = 'Get Tickets';
+    }
+
+    // Subtitle
+    const subtitleEl = document.getElementById('event-subtitle');
+    if (subtitleEl && event.subtitle) {
+      subtitleEl.textContent = event.subtitle;
+    }
+
+    // Lineup slider
+    const slider = document.getElementById('lineup-slider');
+    const dotsContainer = document.getElementById('lineup-dots');
+    if (slider) {
+      const allArtists = [
+        ...event.artists.filter(a => typeof a === 'object' && a.bio),
+        ...(event.mc || []).filter(a => typeof a === 'object' && a.bio)
+      ];
+
+      allArtists.forEach((artist, i) => {
+        const card = document.createElement('div');
+        card.className = 'lineup-card';
+        card.innerHTML = `
+          <img class="lineup-card__photo" src="/${artist.photo}" alt="${artist.name}">
+          <div class="lineup-card__overlay"></div>
+          <div class="lineup-card__content">
+            <div class="lineup-card__header">
+              <div>
+                <div class="lineup-card__name">${artist.name}</div>
+                <div class="lineup-card__role">${artist.role}</div>
+              </div>
+              <button class="lineup-card__more">+ more</button>
+            </div>
+            <p class="lineup-card__bio">${artist.bio}</p>
+          </div>`;
+
+        const moreBtn = card.querySelector('.lineup-card__more');
+        moreBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isExpanded = card.classList.toggle('expanded');
+          moreBtn.textContent = isExpanded ? '— less' : '+ more';
+        });
+
+        slider.appendChild(card);
+      });
+
+      // Dots
+      if (dotsContainer && allArtists.length > 1) {
+        allArtists.forEach((_, i) => {
+          const dot = document.createElement('div');
+          dot.className = 'lineup-dot' + (i === 0 ? ' active' : '');
+          dot.addEventListener('click', () => {
+            slider.children[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+          });
+          dotsContainer.appendChild(dot);
+        });
+
+        // Update dots on scroll
+        slider.addEventListener('scroll', () => {
+          const scrollLeft = slider.scrollLeft;
+          const cardWidth = slider.children[0].offsetWidth + 16;
+          const activeIdx = Math.round(scrollLeft / cardWidth);
+          dotsContainer.querySelectorAll('.lineup-dot').forEach((d, i) => {
+            d.classList.toggle('active', i === activeIdx);
+          });
+        });
+      }
+    }
+
+    // Doors & prices
+    const doorsEl = document.getElementById('event-doors');
+    if (doorsEl && event.doorsTime) {
+      const h = parseInt(event.doorsTime);
+      const ampm = h >= 12 ? 'PM' : 'AM';
+      const h12 = h > 12 ? h - 12 : h;
+      doorsEl.textContent = `Doors from ${h12} ${ampm}`;
+    }
+    const pricesEl = document.getElementById('event-prices');
+    if (pricesEl && event.prices) {
+      const parts = [];
+      if (event.prices.earlyBird) parts.push('Early Bird: ' + event.prices.earlyBird);
+      if (event.prices.general) parts.push('GA: ' + event.prices.general);
+      pricesEl.textContent = parts.join(' · ');
     }
 
     // Past events grid

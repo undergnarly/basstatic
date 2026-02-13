@@ -6,11 +6,45 @@
       "type": "full",
       "status": "upcoming",
       "title": "BASSTATIC: Chapter One",
+      "subtitle": "Born in Goa. Forged through 30+ gatherings across Thailand and Bali. Now rebooting with a fresh chapter.",
       "date": "2026-02-21",
+      "doorsTime": "18:00",
       "venue": "Nuanu, Ash",
       "location": "Bali",
-      "artists": ["Roba Grow", "Muvs", "Vokvi"],
-      "mc": ["Nyoman MC", "Slingkyboyslim"],
+      "prices": { "earlyBird": "Rp 100K", "general": "Rp 200K" },
+      "artists": [
+        {
+          "name": "Roba Grow",
+          "role": "DJ",
+          "photo": "media/artists/roba.jpg",
+          "bio": "Founder of Basstatic. 10+ years behind the decks, delivering modern soundsystem music across dubstep, jungle, and drum & bass. The driving force behind 30+ Basstatic gatherings from Thailand to Bali."
+        },
+        {
+          "name": "Muvs",
+          "role": "DJ / Producer",
+          "photo": "media/artists/muvs.jpg",
+          "bio": "Producer and DJ with over a decade of experience. Versatile selector moving between UK garage, dubstep, jungle, and drum & bass. Expect deep grooves and unexpected transitions."
+        },
+        {
+          "name": "Vokvi",
+          "role": "DJ",
+          "photo": "media/artists/vokvi.jpg",
+          "bio": "DJ, professional surf photographer, and dedicated bass head. Known for digging deep into modern and experimental bass sounds — always finding the tracks you haven't heard yet."
+        }
+      ],
+      "mc": [
+        {
+          "name": "MC Nyoman",
+          "role": "MC",
+          "photo": "media/artists/nyoman.jpg",
+          "bio": "15+ years on the mic. Raggamuffin style, raw energy. A true veteran who knows how to lift a dancefloor and keep it moving."
+        },
+        {
+          "name": "Slingkyboyslim",
+          "role": "MC",
+          "bio": ""
+        }
+      ],
       "genres": ["UK Garage", "Dubstep", "Jungle", "Drum and Bass"],
       "ticketLink": "https://megatix.co.id/events/basstatic-chapter-one",
       "guestlistEnabled": true,

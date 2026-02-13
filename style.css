@@ -367,6 +367,155 @@ a {
   gap: 12px;
 }
 
+/* ========== LINEUP SLIDER ========== */
+.lineup-slider {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 8px;
+  margin: 0 -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.lineup-slider::-webkit-scrollbar { display: none; }
+
+.lineup-card {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  height: 360px;
+  cursor: pointer;
+}
+
+/* Photo background */
+.lineup-card__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: filter 0.4s ease;
+}
+
+.lineup-card.expanded .lineup-card__photo {
+  filter: blur(6px) brightness(0.3);
+}
+
+/* Gradient overlay — always visible */
+.lineup-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+  z-index: 1;
+  transition: background 0.4s ease;
+}
+
+.lineup-card.expanded .lineup-card__overlay {
+  background: rgba(0,0,0,0.5);
+}
+
+/* Content layer */
+.lineup-card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 20px;
+}
+
+/* Header: name + role on left, button on right */
+.lineup-card__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.lineup-card__name {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.lineup-card__role {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 4px;
+}
+
+.lineup-card__more {
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(255, 155, 0, 0.12);
+  border: 1px solid rgba(255, 155, 0, 0.25);
+  border-radius: 100px;
+  padding: 6px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.lineup-card__more:hover {
+  background: rgba(255, 155, 0, 0.2);
+}
+
+/* Bio — hidden by default, slides up */
+.lineup-card__bio {
+  font-size: 13px;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.7;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.4s ease;
+  margin-top: 0;
+}
+
+.lineup-card.expanded .lineup-card__bio {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 14px;
+}
+
+/* Dots */
+.lineup-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.lineup-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.lineup-dot.active {
+  background: var(--accent);
+  width: 20px;
+  border-radius: 3px;
+}
+
 /* ========== MEDIA ========== */
 .media-tabs {
   display: flex;
