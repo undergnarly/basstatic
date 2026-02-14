@@ -111,8 +111,9 @@ async function loadEventData() {
       allArtists.forEach((artist, i) => {
         const card = document.createElement('div');
         card.className = 'lineup-card';
+        const thumbSrc = artist.thumb || '';
         card.innerHTML = `
-          <img class="lineup-card__photo" src="/${artist.photo}" alt="${artist.name}">
+          <img class="lineup-card__photo lineup-card__photo--loading" src="${thumbSrc}" alt="${artist.name}">
           <div class="lineup-card__overlay"></div>
           <div class="lineup-card__content">
             <div class="lineup-card__header">
@@ -124,6 +125,15 @@ async function loadEventData() {
             </div>
             <p class="lineup-card__bio">${artist.bio}</p>
           </div>`;
+
+        // Progressive image load
+        const thumbImg = card.querySelector('.lineup-card__photo');
+        const fullImg = new Image();
+        fullImg.onload = () => {
+          thumbImg.src = fullImg.src;
+          thumbImg.classList.remove('lineup-card__photo--loading');
+        };
+        fullImg.src = '/' + artist.photo;
 
         const moreBtn = card.querySelector('.lineup-card__more');
         moreBtn.addEventListener('click', (e) => {
