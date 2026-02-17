@@ -915,4 +915,8 @@ a {
   .section--dark {
     padding: 48px 40px;
   }
+
+  .sound-toggle {
+    right: calc(50vw - 216px);
+  }
 }
