@@ -1,10 +1,10 @@
 {
-  "settings": { "activeEventId": 1 },
+  "settings": { "activeEventId": 2 },
   "events": [
     {
       "id": 1,
       "type": "full",
-      "status": "upcoming",
+      "status": "past",
       "title": "BASSTATIC: Chapter One",
       "subtitle": "Born in Goa. Forged through 30+ gatherings across Thailand and Bali. Now rebooting with a fresh chapter.",
       "date": "2026-02-21",
@@ -51,6 +51,57 @@
       ],
       "genres": ["UK Garage", "Dubstep", "Jungle", "Drum and Bass"],
       "ticketLink": "https://megatix.co.id/events/basstatic-chapter-one",
+      "guestlistEnabled": true,
+      "heroVideo": "media/events/1/hero.mp4",
+      "posterImage": "media/events/1/poster.jpeg",
+      "bgMusic": "media/events/1/bg-music.mp3",
+      "streamRecording": null
+    },
+    {
+      "id": 2,
+      "type": "full",
+      "status": "upcoming",
+      "title": "BASSTATIC: Chapter Two",
+      "subtitle": "",
+      "date": "2026-03-07",
+      "doorsTime": "",
+      "venue": "Nuanu, SOL Studio",
+      "location": "Bali",
+      "prices": {},
+      "artists": [
+        {
+          "name": "Roba Grow",
+          "role": "DJ",
+          "photo": "media/artists/roba.webp",
+          "thumb": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAADwBQCdASoUABoAPxFurVEsJiQisBgMAYAiCWYAnTNkL0E0EFaA/2HRu96kvR2Sfz9aFeAkZryBsAD+6f58DLOrS5SP31AP/KQQEpGzfw3mDUT6GsgW/dURFA2zEFoqR0XO/rljq8ZkWwYW3gPxPUl8R0kDaTyAFTSBNA6CUKMldnRbtm+xUCvnVTInm7Ix6ZEzrz4TDZO0t7AAWbnSRBZco7LVIZ9EvI/13qZIXCJRrHyHEW0bdREjX3r2+lT0GJGo2ASHQAA=",
+          "bio": "Founder of Basstatic. 10+ years behind the decks, delivering modern soundsystem music across dubstep, jungle, and drum & bass. The driving force behind 30+ Basstatic gatherings from Thailand to Bali."
+        },
+        {
+          "name": "Muvs",
+          "role": "DJ / Producer",
+          "photo": "media/artists/muvs.webp",
+          "thumb": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAACQBQCdASoUABoAPxF4sVIsJySisBgIAYAiCWwAv2r2YAAGEltEPXWxnRw5n2doXkK/KxQ7gAD+6Yodp2umDx2IS8joiyFkSm28gGq6tHw30NUxne2TTwz3a+fgl3MAf0P46QuiTtlI+xHQBIMHrhFKvd+e9ZC56vXvmQmHJVOdekn7JTD5bzy+VclhZyWst0S/03qfR4AAAA==",
+          "bio": "Producer and DJ with over a decade of experience. Versatile selector moving between UK garage, dubstep, jungle, and drum & bass. Expect deep grooves and unexpected transitions."
+        },
+        {
+          "name": "Rose Moses",
+          "role": "DJ",
+          "photo": "",
+          "thumb": "",
+          "bio": ""
+        }
+      ],
+      "mc": [
+        {
+          "name": "MC Nyoman",
+          "role": "MC",
+          "photo": "media/artists/nyoman.webp",
+          "thumb": "data:image/webp;base64,UklGRvAAAABXRUJQVlA4IOQAAABwBQCdASoUABoAPxF+tlWsJ6SjKAgBgCIJbACdMuN+FfdAFobURq7KAO4nyJ7IGrx69nSAAP7o7SOQZvMnzXyNOqCKqMty9tFVjt9Kb32ZmOQHLMl4pOIcuDuS23blbBXTf7jgEIzKf8VY+HA1bhxwbN1/Mr/jUZ2Y+t/4GrzZf8mWgjYMbIQy9sZCNF3wf6j2P6bk5k2SYE8ZRdPfrrur6IW0WKkbU9huC+4VjGfU8F8imrHfGnYBBye+lHkVDe3td2PDc8r52w8k74lCj1y5zScnyWkopfJbpHY3+b8Fpmj8AAA=",
+          "bio": "15+ years on the mic. Raggamuffin style, raw energy. A true veteran who knows how to lift a dancefloor and keep it moving."
+        }
+      ],
+      "genres": ["UK Garage", "Dubstep", "Jungle", "Drum and Bass"],
+      "ticketLink": "",
       "guestlistEnabled": true,
       "heroVideo": "media/events/1/hero.mp4",
       "posterImage": "media/events/1/poster.jpeg",
