@@ -21,31 +21,30 @@
     </div>
   </nav>
 
-  <!-- EVENT HERO -->
-  <div class="event-hero">
-    <img src="/media/events/1/poster.jpeg" alt="BASSTATIC: Chapter One" class="event-hero__img">
-    <div class="event-hero__overlay"></div>
-    <div class="event-hero__content">
-      <span class="event-hero__date">21 FEB 2026</span>
-      <h1 class="event-hero__title">BASSTATIC: Chapter One</h1>
-      <p class="event-hero__detail">Nuanu, Ash &middot; Bali</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__poster">
+      <video src="/media/events/1/hero.mp4" autoplay loop muted playsinline poster="/media/events/1/poster.jpeg"></video>
     </div>
-  </div>
-
-  <!-- EVENT INFO -->
-  <section class="section">
-    <h2 class="section__title">Line-Up</h2>
-    <div class="event-lineup">
-      <span class="event-lineup__artist">Roba Grow</span>
-      <span class="event-lineup__artist">Muvs</span>
-      <span class="event-lineup__artist">Vokvi</span>
-      <span class="event-lineup__artist">Nyoman MC</span>
-      <span class="event-lineup__artist">Slingkyboyslim</span>
+    <div class="hero__content">
+      <div class="hero__badge">21 February in Nuanu, Ash</div>
+      <h1 class="hero__title">BASSTATIC</h1>
+      <p class="hero__sub">Chapter One</p>
+      <div class="hero__artists">Roba Grow &middot; Muvs &middot; Vokvi</div>
+      <div class="hero__artists">Nyoman MC &middot; Slingkyboyslim</div>
+      <div class="hero__genres">UK Garage &middot; Dubstep &middot; Jungle &middot; Drum and Bass</div>
     </div>
-    <p class="section__sub" style="margin-top:16px;">UK Garage &middot; Dubstep &middot; Jungle &middot; Drum and Bass</p>
   </section>
 
-  <!-- CONTENT (videos from the event) -->
+  <!-- LINEUP -->
+  <section class="section" id="lineup">
+    <h2 class="section__title">Line-Up</h2>
+    <p class="section__sub" id="event-subtitle"></p>
+    <div class="lineup-slider" id="lineup-slider"></div>
+    <div class="lineup-dots" id="lineup-dots"></div>
+  </section>
+
+  <!-- CONTENT -->
   <section class="section" id="content">
     <h2 class="section__title">Content</h2>
     <p class="section__sub">Videos and moments from the event.</p>
