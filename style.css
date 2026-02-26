@@ -17,6 +17,7 @@
   --radius: 12px;
   --radius-sm: 8px;
   --font: 'Space Grotesk', -apple-system, sans-serif;
+  --font-display: 'Anton', sans-serif;
 }
 
 html {
@@ -62,7 +63,8 @@ a {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 400;
   font-size: 16px;
   letter-spacing: 2px;
 }
@@ -191,8 +193,9 @@ a {
 }
 
 .hero__title {
-  font-size: 48px;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 60px;
+  font-weight: 400;
   letter-spacing: 3.5px;
   margin-bottom: 360px;
 }
@@ -292,8 +295,9 @@ a {
 }
 
 .section__title {
+  font-family: var(--font-display);
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -0.5px;
   margin-bottom: 8px;
 }
@@ -797,7 +801,8 @@ a {
 
 .footer__logo {
   display: block;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 400;
   font-size: 14px;
   letter-spacing: 2px;
 }
