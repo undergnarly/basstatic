@@ -300,6 +300,7 @@ if (bgMusic && soundToggle) {
   let audioCtx, analyser, dataArray, source;
   const heroVideo = document.querySelector('.hero__poster video');
   const heroPoster = document.querySelector('.hero__poster');
+  const heroTitle = document.querySelector('.hero__title');
 
   function initBassReactor() {
     if (audioCtx) return;
@@ -378,6 +379,7 @@ if (bgMusic && soundToggle) {
 
     heroPoster.style.transform = `scale(${scale}) translate(${tx}px, ${ty}px)`;
     heroPoster.style.filter = `brightness(${bright}) contrast(${contrast})`;
+
   }
 
   function startMusic() {

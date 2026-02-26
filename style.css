@@ -11,7 +11,7 @@
   --bg-input: #161616;
   --border: #222222;
   --text: #e8e8e8;
-  --text-dim: #b0917a;
+  --text-dim: #d9a47c;
   --accent: #ff9b00;
   --accent-dim: #d98300;
   --radius: 12px;
@@ -198,6 +198,13 @@ a {
   font-weight: 400;
   letter-spacing: 3.5px;
   margin-bottom: 360px;
+  -webkit-text-stroke: 1.5px var(--text);
+  animation: title-pulse 4s ease-in-out infinite;
+}
+
+@keyframes title-pulse {
+  0%, 100% { color: transparent; }
+  50% { color: rgba(232, 232, 232, 0.5); }
 }
 
 .hero__sub {
