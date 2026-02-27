@@ -198,6 +198,7 @@ a {
   font-weight: 400;
   letter-spacing: 5px;
   margin-bottom: 360px;
+  color: transparent;
   -webkit-text-stroke: 2px var(--text);
 }
 
