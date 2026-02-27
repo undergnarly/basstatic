@@ -64,10 +64,10 @@
       "title": "BASSTATIC: Chapter Two",
       "subtitle": "",
       "date": "2026-03-07",
-      "doorsTime": "",
+      "doorsTime": "18:00",
       "venue": "Nuanu, SOL Studio",
       "location": "Bali",
-      "prices": {},
+      "prices": { "earlyBird": "Rp 40K (first 40 tickets)", "general": "" },
       "artists": [
         {
           "name": "Roba Grow",
