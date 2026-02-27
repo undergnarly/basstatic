@@ -101,8 +101,8 @@
         }
       ],
       "genres": ["UK Garage", "Dubstep", "Jungle", "Drum and Bass"],
-      "ticketLink": "",
-      "guestlistEnabled": true,
+      "ticketLink": "https://megatix.co.id/events/basstatic-chapter-two",
+      "guestlistEnabled": false,
       "heroVideo": "media/events/2/hero.mp4",
       "posterImage": "media/events/2/poster.jpeg",
       "bgMusic": "media/events/2/bg-music.mp3",
