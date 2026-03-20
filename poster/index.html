@@ -10,10 +10,11 @@
   <link rel="icon" href="/favicon.ico">
   <link rel="stylesheet" href="/style.css?v=3">
   <style>
-    .hero__badge { margin-top: 0px; }
-    @media (max-width: 767px) {
-      .hero__title { margin-bottom: 180px; }
-    }
+    body { background: #0a0a0a; }
+    .hero { min-height: 100vh; display: flex; align-items: flex-end; justify-content: center; position: relative; }
+    .hero__poster { position: absolute; inset: 0; }
+    .hero__poster img { width: 100%; height: 100%; object-fit: cover; }
+    .hero__cta { position: relative; z-index: 2; padding-bottom: 40px; }
   </style>
 </head>
 <body>
@@ -21,17 +22,12 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero__poster">
-      <video src="/media/events/1/hero.mp4" autoplay loop muted playsinline poster="/media/events/1/poster.jpeg"></video>
+      <img src="/media/events/3/poster.jpeg" alt="BASSTATIC: Chapter Three">
     </div>
-    <div class="hero__content">
-      <div class="hero__badge">7 March in Nuanu, SOL Studio</div>
-      <h1 class="hero__title">BASSTATIC</h1>
-      <div class="hero__artists">Roba Grow &middot; Muvs &middot; Roza Moses</div>
-      <div class="hero__artists">Nyoman MC</div>
-      <div class="hero__genres">UK Garage &middot; Dubstep &middot; Jungle &middot; Drum and Bass</div>
+    <div class="hero__cta">
+      <a href="/guestlist" class="btn btn--primary">Join Guest List</a>
     </div>
   </section>
 
-  <script src="/app.js"></script>
 </body>
 </html>
