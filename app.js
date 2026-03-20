@@ -16,15 +16,18 @@ async function loadEventData() {
       badge.textContent = `${day} ${month} in ${event.venue}`;
     }
 
-    // Hero media
-    const heroVideo = document.querySelector('.hero__poster video');
-    if (heroVideo) {
-      heroVideo.src = '/' + event.heroVideo;
-      heroVideo.poster = '/' + event.posterImage;
-    }
-    const heroImg = document.querySelector('.hero__poster img');
-    if (heroImg && !heroVideo) {
-      heroImg.src = '/' + event.posterImage;
+    // Hero media (only on main pages, not on /events/ subpages)
+    const isEventPage = window.location.pathname.startsWith('/events/');
+    if (!isEventPage) {
+      const heroVideo = document.querySelector('.hero__poster video');
+      if (heroVideo) {
+        heroVideo.src = '/' + event.heroVideo;
+        heroVideo.poster = '/' + event.posterImage;
+      }
+      const heroImg = document.querySelector('.hero__poster img');
+      if (heroImg && !heroVideo) {
+        heroImg.src = '/' + event.posterImage;
+      }
     }
 
     // Background music
