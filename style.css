@@ -110,12 +110,17 @@ a {
   overflow: hidden;
 }
 
-.hero__poster video,
-.hero__poster img {
+.hero__poster video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center center;
+}
+
+.hero__poster img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .hero__poster::after {

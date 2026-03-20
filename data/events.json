@@ -84,7 +84,7 @@
           "bio": "Producer and DJ with over a decade of experience. Versatile selector moving between UK garage, dubstep, jungle, and drum & bass. Expect deep grooves and unexpected transitions."
         },
         {
-          "name": "Roza Moses",
+          "name": "Roza Mozes",
           "role": "DJ",
           "photo": "media/artists/roza.webp",
           "thumb": "data:image/webp;base64,UklGRtwAAABXRUJQVlA4INAAAABwBQCdASoUABsAPtFcp04oJSOiKAqpABoJQBOmWqgpAh8gMDggAktD1R9tEdjVvvLTTkfwAP7nQX2e4AhVS7y9jUcREneX23eyYupKK0FozHgSpjt8jOB2yFZlAJoTHB5vtMaU7xh+++j0mEVxNs6zZbOvWzh9RTB4P8qyWwXvSvpSJ9R8eQJCc7kKBWbqDpdJnDSexZs1dxFUtWJ4NYQjq3/5QnEIN79w4DILnpP0UJoNo6Eamt3VVYRFFKc5+lfX1kVxzLEuPGhGalG2AAAA",
@@ -135,7 +135,7 @@
           "bio": "Producer and DJ with over a decade of experience. Versatile selector moving between UK garage, dubstep, jungle, and drum & bass. Expect deep grooves and unexpected transitions."
         },
         {
-          "name": "Roza Moses",
+          "name": "Roza Mozes",
           "role": "DJ",
           "photo": "media/artists/roza.webp",
           "thumb": "data:image/webp;base64,UklGRtwAAABXRUJQVlA4INAAAABwBQCdASoUABsAPtFcp04oJSOiKAqpABoJQBOmWqgpAh8gMDggAktD1R9tEdjVvvLTTkfwAP7nQX2e4AhVS7y9jUcREneX23eyYupKK0FozHgSpjt8jOB2yFZlAJoTHB5vtMaU7xh+++j0mEVxNs6zZbOvWzh9RTB4P8qyWwXvSvpSJ9R8eQJCc7kKBWbqDpdJnDSexZs1dxFUtWJ4NYQjq3/5QnEIN79w4DILnpP0UJoNo6Eamt3VVYRFFKc5+lfX1kVxzLEuPGhGalG2AAAA",
@@ -161,8 +161,8 @@
       "genres": ["UK Garage", "Dubstep", "Jungle", "Drum and Bass"],
       "ticketLink": "",
       "guestlistEnabled": true,
-      "heroVideo": "media/events/2/hero.mp4",
-      "posterImage": "media/events/2/poster.jpeg",
+      "heroVideo": "",
+      "posterImage": "media/events/3/poster.jpeg",
       "bgMusic": "media/events/2/bg-music.mp3",
       "streamRecording": null
     }
