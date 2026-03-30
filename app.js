@@ -3,8 +3,13 @@ async function loadEventData() {
   try {
     const resp = await fetch('/data/events.json');
     const data = await resp.json();
-    const activeId = data.settings.activeEventId;
-    const event = data.events.find(e => e.id === activeId);
+    const isEventPage = window.location.pathname.startsWith('/events/');
+    let eventId = data.settings.activeEventId;
+    if (isEventPage) {
+      const match = window.location.pathname.match(/\/events\/(\d+)/);
+      if (match) eventId = parseInt(match[1]);
+    }
+    const event = data.events.find(e => e.id === eventId);
     if (!event) return;
 
     // Hero badge
@@ -17,7 +22,6 @@ async function loadEventData() {
     }
 
     // Hero media (only on main pages, not on /events/ subpages)
-    const isEventPage = window.location.pathname.startsWith('/events/');
     if (!isEventPage) {
       const heroVideo = document.querySelector('.hero__poster video');
       if (heroVideo) {
