@@ -110,6 +110,7 @@ async function loadEventData() {
     const slider = document.getElementById('lineup-slider');
     const dotsContainer = document.getElementById('lineup-dots');
     if (slider) {
+      slider.innerHTML = '';
       const allArtists = [
         ...event.artists.filter(a => typeof a === 'object' && a.bio),
         ...(event.mc || []).filter(a => typeof a === 'object' && a.bio)

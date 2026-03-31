@@ -23,6 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Anton&display=swap" rel="stylesheet">
+  <link rel="preload" href="/data/events.json" as="fetch" crossorigin>
   <link rel="icon" href="/favicon.ico">
   <link rel="stylesheet" href="style.css?v=4">
   <style>
@@ -102,7 +103,12 @@
   <section class="section" id="lineup">
     <h2 class="section__title">Line-Up</h2>
     <p class="section__sub" id="event-subtitle"></p>
-    <div class="lineup-slider" id="lineup-slider"></div>
+    <div class="lineup-slider" id="lineup-slider">
+      <!-- Skeleton placeholders — replaced by JS -->
+      <div class="lineup-card lineup-card--skeleton"><div class="lineup-card__skeleton-shimmer"></div></div>
+      <div class="lineup-card lineup-card--skeleton"><div class="lineup-card__skeleton-shimmer"></div></div>
+      <div class="lineup-card lineup-card--skeleton"><div class="lineup-card__skeleton-shimmer"></div></div>
+    </div>
     <div class="lineup-dots" id="lineup-dots"></div>
   </section>
 

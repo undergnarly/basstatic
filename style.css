@@ -528,6 +528,22 @@ a {
   background: rgba(0,0,0,0.5);
 }
 
+/* Skeleton loading state */
+.lineup-card--skeleton {
+  background: var(--bg-card);
+}
+.lineup-card__skeleton-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.04) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 /* Content layer */
 .lineup-card__content {
   position: absolute;
