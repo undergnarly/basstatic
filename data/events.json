@@ -172,7 +172,7 @@
       "status": "upcoming",
       "title": "BASSTATIC x JOE NICE",
       "subtitle": "The Godfather of American Dubstep comes to Bali",
-      "date": "2026-04-17",
+      "date": "2026-04-16",
       "doorsTime": "18:00",
       "venue": "Nuanu, Ash",
       "location": "Bali",
@@ -214,6 +214,13 @@
           "bio": "Dark bass devotee with a 140BPM backbone. Blends grime, halfstep, dub, and footwork into unpredictable, genre-fluid sets."
         },
         {
+          "name": "Xypminsky",
+          "role": "DJ",
+          "photo": "",
+          "thumb": "",
+          "bio": ""
+        },
+        {
           "name": "Linda",
           "role": "DJ",
           "photo": "",
@@ -231,7 +238,7 @@
         }
       ],
       "genres": ["Dubstep", "Deep Dubstep", "140"],
-      "ticketLink": "",
+      "ticketLink": "https://megatix.co.id/events/basstatic-joe-nice",
       "guestlistEnabled": false,
       "heroVideo": "",
       "posterImage": "media/events/4/poster.jpeg",
