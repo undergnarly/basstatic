@@ -363,30 +363,9 @@ if (bgMusic && soundToggle) {
 
     let scale, bright, tx = 0, ty = 0;
 
-    if (hasBass) {
-      // Sub active: micro-vibration + zoom
-      const shakeIntensity = Math.max(0, (intensity - 0.45) / 0.55);
-      const shakeAmount = shakeIntensity * 1.2;
-      tx = (Math.random() - 0.5) * shakeAmount;
-      ty = (Math.random() - 0.5) * shakeAmount;
-      scale = 1 + intensity * 0.1;
-      bright = 0.6 + intensity * 0.7;
-    } else {
-      // No sub: slow gentle zoom
-      slowZoom += zoomDir * 0.0001;
-      if (slowZoom > 1.04) zoomDir = -1;
-      if (slowZoom < 1) zoomDir = 1;
-      const zoomProgress = (slowZoom - 1) / 0.04;
-      scale = slowZoom;
-      bright = 0.7 + zoomProgress * 0.3;
-    }
-
-    // Snare flash adds brightness + slight contrast kick
-    bright += snareFlash * 0.2;
-    const contrast = 1 + snareFlash * 0.12;
-
-    heroPoster.style.transform = `scale(${scale}) translate(${tx}px, ${ty}px)`;
-    heroPoster.style.filter = `brightness(${bright}) contrast(${contrast})`;
+    scale = 1;
+    bright = 1;
+    const contrast = 1;
 
   }
 
