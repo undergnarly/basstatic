@@ -1,5 +1,5 @@
 {
-  "settings": { "activeEventId": 4 },
+  "settings": { "activeEventId": 5 },
   "events": [
     {
       "id": 1,
@@ -169,7 +169,7 @@
     {
       "id": 4,
       "type": "full",
-      "status": "upcoming",
+      "status": "past",
       "title": "BASSTATIC x JOE NICE",
       "subtitle": "The Godfather of American Dubstep comes to Bali",
       "date": "2026-04-16",
@@ -244,6 +244,86 @@
       "posterImage": "media/events/4/poster.jpeg",
       "bgMusic": "",
       "streamRecording": null
+    },
+    {
+      "id": 5,
+      "type": "full",
+      "status": "upcoming",
+      "title": "BASSTATIC x MUNGK",
+      "subtitle": "UK bass meets world folk. No resistance. Just bass.",
+      "date": "2026-05-22",
+      "doorsTime": "18:00",
+      "venue": "Nuanu, Ash",
+      "location": "Bali",
+      "prices": {},
+      "artists": [
+        {
+          "name": "Mungk",
+          "role": "DJ / Producer",
+          "photo": "media/artists/mungk.webp",
+          "thumb": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAwCdASoUABQAPxF8slIsKCSisBgIAYAiCWkAAC2rTdLKkBpvxBywAP7ug7hN00bBV4sZjOxgSdh7K8vyQhul1XP8TdL1dQfHHy+tf2dJoKdx8BAAAA==",
+          "bio": "British-born DJ and producer (Matt Beauchamp) crafting a unique blend of UK bass music and world folk sounds for nearly a decade. Now touring Asia full time. Released 'Temple of Mungk' on DUPLOC — a concept album following a monk's journey from China through India, the Middle East and Africa, woven with field recordings and traditional instruments. Bass-heavy dubwise style, built for the soundsystem. Supported by Commodo, Sicaria Sound, Truth, J:Kenzo, Hatcha, N-Type, Ternion Sound and Joe Nice."
+        },
+        {
+          "name": "Roba Grow",
+          "role": "DJ",
+          "photo": "media/artists/roba.webp",
+          "thumb": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAADwBQCdASoUABoAPxFurVEsJiQisBgMAYAiCWYAnTNkL0E0EFaA/2HRu96kvR2Sfz9aFeAkZryBsAD+6f58DLOrS5SP31AP/KQQEpGzfw3mDUT6GsgW/dURFA2zEFoqR0XO/rljq8ZkWwYW3gPxPUl8R0kDaTyAFTSBNA6CUKMldnRbtm+xUCvnVTInm7Ix6ZEzrz4TDZO0t7AAWbnSRBZco7LVIZ9EvI/13qZIXCJRrHyHEW0bdREjX3r2+lT0GJGo2ASHQAA=",
+          "bio": "Founder of Basstatic. 10+ years behind the decks, delivering modern soundsystem music across dubstep, jungle, and drum & bass. The driving force behind 30+ Basstatic gatherings from Thailand to Bali."
+        },
+        {
+          "name": "Vokvi",
+          "role": "DJ",
+          "photo": "media/artists/vokvi.webp",
+          "thumb": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAABQBACdASoUABoAPxF8s1QsJ6QjKAqpgCIJYgC7ABEcrxXGtmaUkT84NpvwAP7uf+sbAwIwvD/xQ1mxstJguKOxg1NwOm4OHg5Arau6xZwDLGmf+YlXXIrs/tTLirhxHm1P4AAA",
+          "bio": "DJ, professional surf photographer, and dedicated bass head. Known for digging deep into modern and experimental bass sounds — always finding the tracks you haven't heard yet."
+        },
+        {
+          "name": "Muvs",
+          "role": "DJ / Producer",
+          "photo": "media/artists/muvs.webp",
+          "thumb": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAACQBQCdASoUABoAPxF4sVIsJySisBgIAYAiCWwAv2r2YAAGEltEPXWxnRw5n2doXkK/KxQ7gAD+6Yodp2umDx2IS8joiyFkSm28gGq6tHw30NUxne2TTwz3a+fgl3MAf0P46QuiTtlI+xHQBIMHrhFKvd+e9ZC56vXvmQmHJVOdekn7JTD5bzy+VclhZyWst0S/03qfR4AAAA==",
+          "bio": "Producer and DJ with over a decade of experience. Versatile selector moving between UK garage, dubstep, jungle, and drum & bass. Expect deep grooves and unexpected transitions."
+        },
+        {
+          "name": "Roza Mozes",
+          "role": "DJ",
+          "photo": "media/artists/roza.webp",
+          "thumb": "data:image/webp;base64,UklGRtwAAABXRUJQVlA4INAAAABwBQCdASoUABsAPtFcp04oJSOiKAqpABoJQBOmWqgpAh8gMDggAktD1R9tEdjVvvLTTkfwAP7nQX2e4AhVS7y9jUcREneX23eyYupKK0FozHgSpjt8jOB2yFZlAJoTHB5vtMaU7xh+++j0mEVxNs6zZbOvWzh9RTB4P8qyWwXvSvpSJ9R8eQJCc7kKBWbqDpdJnDSexZs1dxFUtWJ4NYQjq3/5QnEIN79w4DILnpP0UJoNo6Eamt3VVYRFFKc5+lfX1kVxzLEuPGhGalG2AAAA",
+          "bio": "Dark bass devotee with a 140BPM backbone. Blends grime, halfstep, dub, and footwork into unpredictable, genre-fluid sets."
+        },
+        {
+          "name": "Dame Bambou",
+          "role": "DJ",
+          "photo": "",
+          "thumb": "",
+          "bio": ""
+        }
+      ],
+      "mc": [
+        {
+          "name": "MC Nyoman",
+          "role": "MC",
+          "photo": "media/artists/nyoman.webp",
+          "thumb": "data:image/webp;base64,UklGRvAAAABXRUJQVlA4IOQAAABwBQCdASoUABoAPxF+tlWsJ6SjKAgBgCIJbACdMuN+FfdAFobURq7KAO4nyJ7IGrx69nSAAP7o7SOQZvMnzXyNOqCKqMty9tFVjt9Kb32ZmOQHLMl4pOIcuDuS23blbBXTf7jgEIzKf8VY+HA1bhxwbN1/Mr/jUZ2Y+t/4GrzZf8mWgjYMbIQy9sZCNF3wf6j2P6bk5k2SYE8ZRdPfrrur6IW0WKkbU9huC+4VjGfU8F8imrHfGnYBBye+lHkVDe3td2PDc8r52w8k74lCj1y5zScnyWkopfJbpHY3+b8Fpmj8AAA=",
+          "bio": "15+ years on the mic. Raggamuffin style, raw energy. A true veteran who knows how to lift a dancefloor and keep it moving."
+        }
+      ],
+      "genres": ["Dubstep", "140", "Dub", "Grime"],
+      "ticketLink": "https://megatix.co.id/events/basstatic-x-mungk",
+      "guestlistEnabled": false,
+      "heroVideo": "",
+      "posterImage": "media/events/5/poster.jpeg",
+      "bgMusic": "",
+      "streamRecording": null,
+      "timetable": [
+        { "time": "18:00", "act": "Basstatic Crew Intro" },
+        { "time": "20:00", "act": "Dame Bambou" },
+        { "time": "20:40", "act": "Muvs x MC Nyoman" },
+        { "time": "21:20", "act": "Roza Mozes" },
+        { "time": "22:00", "act": "Mungk" },
+        { "time": "23:00", "act": "Vokvi b2b Roba Grow" }
+      ]
     }
   ]
 }
