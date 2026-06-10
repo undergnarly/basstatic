@@ -1,5 +1,5 @@
 {
-  "settings": { "activeEventId": 5 },
+  "settings": { "activeEventId": 6 },
   "events": [
     {
       "id": 1,
@@ -248,7 +248,7 @@
     {
       "id": 5,
       "type": "full",
-      "status": "upcoming",
+      "status": "past",
       "title": "BASSTATIC x MUNGK",
       "subtitle": "UK bass meets world folk. No resistance. Just bass.",
       "date": "2026-05-22",
@@ -324,6 +324,35 @@
         { "time": "22:00", "act": "Mungk" },
         { "time": "23:00", "act": "Vokvi b2b Roba Grow" }
       ]
+    },
+    {
+      "id": 6,
+      "type": "full",
+      "status": "upcoming",
+      "title": "BASSTATIC x SQUAREWAVE",
+      "subtitle": "Rare cuts, heavyweight frequencies, unreleased dubplates.",
+      "date": "2026-06-26",
+      "doorsTime": "18:00",
+      "venue": "Nuanu, Ash",
+      "location": "Bali",
+      "prices": {},
+      "artists": [
+        {
+          "name": "Squarewave",
+          "role": "DJ / Producer",
+          "photo": "media/artists/squarewave.webp",
+          "thumb": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAABQBQCdASoUABQAPu1ur1IppiQiqAgBMB2JYwC+T2pTZSkaZmpb1bRsQK9cv7/lYs7ipAAA9i0AHY6hdygOFKvU0g3cvoNXcsedTg6c3G3SRty+s4fSK4Ne+pDD9tHCkBrcVSOZEDJ70k1d31FD2lVBxQEvib6Bua38VUk4UUjzZj3N6g4ITy1xfvE4CLVkHr49ZbHFgox+2XIQNOp5VWgpxtT4wAAA",
+          "bio": "London-born DJ and producer active in the underground since the age of 16. Starting out in jungle and drum & bass before moving into dubstep production — with releases on Boka, Hench and Moonshine and support across BBC Radio, Kool FM, Rinse FM and Subtle FM. Founder of New World Audio, he has played Fabric London, Outlook Festival, Ministry of Sound and countless clubs across Europe, the Americas and Asia. His sets run deep on heavyweight frequencies, rare cuts and a collection of unreleased dubplates from some of the scene's finest producers. Some tracks will never make it to streaming."
+        }
+      ],
+      "mc": [],
+      "genres": ["Dubstep", "Jungle", "Drum and Bass"],
+      "ticketLink": "https://megatix.co.id/events/basstatic-x-squarewave",
+      "guestlistEnabled": false,
+      "heroVideo": "",
+      "posterImage": "media/events/6/poster.jpeg",
+      "bgMusic": "",
+      "streamRecording": null
     }
   ]
 }
