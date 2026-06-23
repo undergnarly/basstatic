@@ -338,6 +338,48 @@
       "prices": {},
       "artists": [
         {
+          "name": "Roba Grow",
+          "role": "DJ",
+          "photo": "media/artists/roba.webp",
+          "thumb": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAADwBQCdASoUABoAPxFurVEsJiQisBgMAYAiCWYAnTNkL0E0EFaA/2HRu96kvR2Sfz9aFeAkZryBsAD+6f58DLOrS5SP31AP/KQQEpGzfw3mDUT6GsgW/dURFA2zEFoqR0XO/rljq8ZkWwYW3gPxPUl8R0kDaTyAFTSBNA6CUKMldnRbtm+xUCvnVTInm7Ix6ZEzrz4TDZO0t7AAWbnSRBZco7LVIZ9EvI/13qZIXCJRrHyHEW0bdREjX3r2+lT0GJGo2ASHQAA=",
+          "bio": "Founder of Basstatic. 10+ years behind the decks, delivering modern soundsystem music across dubstep, jungle, and drum & bass. The driving force behind 30+ Basstatic gatherings from Thailand to Bali."
+        },
+        {
+          "name": "Vokvi",
+          "role": "DJ",
+          "photo": "media/artists/vokvi.webp",
+          "thumb": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAABQBACdASoUABoAPxF8s1QsJ6QjKAqpgCIJYgC7ABEcrxXGtmaUkT84NpvwAP7uf+sbAwIwvD/xQ1mxstJguKOxg1NwOm4OHg5Arau6xZwDLGmf+YlXXIrs/tTLirhxHm1P4AAA",
+          "bio": "DJ, professional surf photographer, and dedicated bass head. Known for digging deep into modern and experimental bass sounds — always finding the tracks you haven't heard yet."
+        },
+        {
+          "name": "Muvs",
+          "role": "DJ / Producer",
+          "photo": "media/artists/muvs.webp",
+          "thumb": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAACQBQCdASoUABoAPxF4sVIsJySisBgIAYAiCWwAv2r2YAAGEltEPXWxnRw5n2doXkK/KxQ7gAD+6Yodp2umDx2IS8joiyFkSm28gGq6tHw30NUxne2TTwz3a+fgl3MAf0P46QuiTtlI+xHQBIMHrhFKvd+e9ZC56vXvmQmHJVOdekn7JTD5bzy+VclhZyWst0S/03qfR4AAAA==",
+          "bio": "Producer and DJ with over a decade of experience. Versatile selector moving between UK garage, dubstep, jungle, and drum & bass. Expect deep grooves and unexpected transitions."
+        },
+        {
+          "name": "Ega",
+          "role": "DJ",
+          "photo": "",
+          "thumb": "",
+          "bio": ""
+        },
+        {
+          "name": "Roza Mozes",
+          "role": "DJ",
+          "photo": "media/artists/roza.webp",
+          "thumb": "data:image/webp;base64,UklGRtwAAABXRUJQVlA4INAAAABwBQCdASoUABsAPtFcp04oJSOiKAqpABoJQBOmWqgpAh8gMDggAktD1R9tEdjVvvLTTkfwAP7nQX2e4AhVS7y9jUcREneX23eyYupKK0FozHgSpjt8jOB2yFZlAJoTHB5vtMaU7xh+++j0mEVxNs6zZbOvWzh9RTB4P8qyWwXvSvpSJ9R8eQJCc7kKBWbqDpdJnDSexZs1dxFUtWJ4NYQjq3/5QnEIN79w4DILnpP0UJoNo6Eamt3VVYRFFKc5+lfX1kVxzLEuPGhGalG2AAAA",
+          "bio": "Dark bass devotee with a 140BPM backbone. Blends grime, halfstep, dub, and footwork into unpredictable, genre-fluid sets."
+        },
+        {
+          "name": "Rit Locus",
+          "role": "DJ",
+          "photo": "",
+          "thumb": "",
+          "bio": ""
+        },
+        {
           "name": "Squarewave",
           "role": "DJ / Producer",
           "photo": "media/artists/squarewave.webp",
@@ -345,14 +387,33 @@
           "bio": "London-born DJ and producer active in the underground since the age of 16. Starting out in jungle and drum & bass before moving into dubstep production — with releases on Boka, Hench and Moonshine and support across BBC Radio, Kool FM, Rinse FM and Subtle FM. Founder of New World Audio, he has played Fabric London, Outlook Festival, Ministry of Sound and countless clubs across Europe, the Americas and Asia. His sets run deep on heavyweight frequencies, rare cuts and a collection of unreleased dubplates from some of the scene's finest producers. Some tracks will never make it to streaming."
         }
       ],
-      "mc": [],
+      "mc": [
+        {
+          "name": "MC Nyoman",
+          "role": "MC",
+          "photo": "media/artists/nyoman.webp",
+          "thumb": "data:image/webp;base64,UklGRvAAAABXRUJQVlA4IOQAAABwBQCdASoUABoAPxF+tlWsJ6SjKAgBgCIJbACdMuN+FfdAFobURq7KAO4nyJ7IGrx69nSAAP7o7SOQZvMnzXyNOqCKqMty9tFVjt9Kb32ZmOQHLMl4pOIcuDuS23blbBXTf7jgEIzKf8VY+HA1bhxwbN1/Mr/jUZ2Y+t/4GrzZf8mWgjYMbIQy9sZCNF3wf6j2P6bk5k2SYE8ZRdPfrrur6IW0WKkbU9huC+4VjGfU8F8imrHfGnYBBye+lHkVDe3td2PDc8r52w8k74lCj1y5zScnyKkopfJbpHY3+b8Fpmj8AAA=",
+          "bio": "15+ years on the mic. Raggamuffin style, raw energy. A true veteran who knows how to lift a dancefloor and keep it moving."
+        }
+      ],
       "genres": ["Dubstep", "Jungle", "Drum and Bass"],
       "ticketLink": "https://megatix.co.id/events/basstatic-x-squarewave",
       "guestlistEnabled": false,
       "heroVideo": "",
       "posterImage": "media/events/6/poster.webp",
       "bgMusic": "",
-      "streamRecording": null
+      "streamRecording": null,
+      "timetable": [
+        { "time": "18:00", "act": "Roba Grow" },
+        { "time": "18:40", "act": "Vokvi" },
+        { "time": "19:20", "act": "Muvs" },
+        { "time": "20:00", "act": "Ega" },
+        { "time": "20:40", "act": "Roza Mozes" },
+        { "time": "21:20", "act": "Rit Locus" },
+        { "time": "22:00", "act": "Dj Squarewave" },
+        { "time": "22:50", "act": "Roba Grow" },
+        { "time": "23:20", "act": "Muvs b2b Vokvi" }
+      ]
     }
   ]
 }
