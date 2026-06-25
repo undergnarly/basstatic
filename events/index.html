@@ -91,10 +91,12 @@
         document.getElementById('event-badge').textContent = day + ' ' + month + ' in ' + ev.venue;
         document.getElementById('event-title').textContent = ev.title;
         document.getElementById('event-detail').textContent = day + ' ' + month + ' ' + year + ' · ' + ev.venue + ', ' + ev.location;
-        document.getElementById('event-artists').innerHTML = ev.artists.join(' &middot; ');
+        const artistNames = ev.artists.map(a => typeof a === 'string' ? a : a.name);
+        const mcNames = (ev.mc || []).map(a => typeof a === 'string' ? a : a.name);
+        document.getElementById('event-artists').innerHTML = artistNames.join(' &middot; ');
 
-        if (ev.mc && ev.mc.length) {
-          document.getElementById('event-mc').innerHTML = ev.mc.join(' &middot; ');
+        if (mcNames.length) {
+          document.getElementById('event-mc').innerHTML = mcNames.join(' &middot; ');
         }
         document.getElementById('event-genres').innerHTML = ev.genres.join(' &middot; ');
 

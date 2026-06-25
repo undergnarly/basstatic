@@ -41,8 +41,9 @@ async function loadEventData() {
     }
 
     // Artists (now objects with name/role/bio)
-    const artistNames = event.artists.map(a => typeof a === 'string' ? a : a.name);
-    const mcNames = (event.mc || []).map(a => typeof a === 'string' ? a : a.name);
+    const getName = (person) => typeof person === 'string' ? person : person.name;
+    const artistNames = event.artists.map(getName);
+    const mcNames = (event.mc || []).map(getName);
 
     const artistEls = document.querySelectorAll('.hero__artists');
     if (artistEls.length >= 1) {
@@ -111,15 +112,53 @@ async function loadEventData() {
     const dotsContainer = document.getElementById('lineup-dots');
     if (slider) {
       slider.innerHTML = '';
+      if (dotsContainer) dotsContainer.innerHTML = '';
       const allArtists = [
-        ...event.artists.filter(a => typeof a === 'object' && a.bio),
-        ...(event.mc || []).filter(a => typeof a === 'object' && a.bio)
-      ];
+        ...event.artists,
+        ...(event.mc || [])
+      ].map((artist) => {
+        if (typeof artist === 'string') {
+          return { name: artist, role: 'Artist', photo: event.posterImage, thumb: '', bio: '' };
+        }
+        return artist;
+      }).filter((artist) => artist.name);
+
+      const lineupNote = document.getElementById('lineup-note');
+      if (lineupNote && allArtists.length) {
+        lineupNote.style.display = 'none';
+      }
+
+      const timetable = event.timetable || [];
+      let timetableEl = document.getElementById('event-timetable');
+      if (!timetableEl && dotsContainer && timetable.length) {
+        timetableEl = document.createElement('div');
+        timetableEl.id = 'event-timetable';
+        timetableEl.className = 'timetable';
+        dotsContainer.insertAdjacentElement('afterend', timetableEl);
+      }
+      if (timetableEl) {
+        timetableEl.innerHTML = timetable.map(slot => `
+          <div class="timetable__row">
+            <span class="timetable__time">${slot.time}</span>
+            <span class="timetable__act">${slot.act}</span>
+          </div>`).join('');
+        timetableEl.style.display = timetable.length ? '' : 'none';
+      }
+
+      if (!allArtists.length) {
+        return;
+      }
 
       allArtists.forEach((artist, i) => {
+        const hasBio = Boolean(artist.bio);
+        const photoSrc = artist.photo || event.posterImage || '';
+        const thumbSrc = artist.thumb || (photoSrc ? '/' + photoSrc : '');
+        const role = artist.role || 'Artist';
+        const moreButton = hasBio ? '<button class="lineup-card__more">+ more</button>' : '';
+        const bio = hasBio ? `<p class="lineup-card__bio">${artist.bio}</p>` : '';
+
         const card = document.createElement('div');
         card.className = 'lineup-card';
-        const thumbSrc = artist.thumb || '';
         card.innerHTML = `
           <img class="lineup-card__photo lineup-card__photo--loading" src="${thumbSrc}" alt="${artist.name}">
           <div class="lineup-card__overlay"></div>
@@ -127,28 +166,34 @@ async function loadEventData() {
             <div class="lineup-card__header">
               <div>
                 <div class="lineup-card__name">${artist.name}</div>
-                <div class="lineup-card__role">${artist.role}</div>
+                <div class="lineup-card__role">${role}</div>
               </div>
-              <button class="lineup-card__more">+ more</button>
+              ${moreButton}
             </div>
-            <p class="lineup-card__bio">${artist.bio}</p>
+            ${bio}
           </div>`;
 
         // Progressive image load
         const thumbImg = card.querySelector('.lineup-card__photo');
-        const fullImg = new Image();
-        fullImg.onload = () => {
-          thumbImg.src = fullImg.src;
+        if (photoSrc) {
+          const fullImg = new Image();
+          fullImg.onload = () => {
+            thumbImg.src = fullImg.src;
+            thumbImg.classList.remove('lineup-card__photo--loading');
+          };
+          fullImg.src = photoSrc.startsWith('/') ? photoSrc : '/' + photoSrc;
+        } else {
           thumbImg.classList.remove('lineup-card__photo--loading');
-        };
-        fullImg.src = '/' + artist.photo;
+        }
 
         const moreBtn = card.querySelector('.lineup-card__more');
-        moreBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const isExpanded = card.classList.toggle('expanded');
-          moreBtn.textContent = isExpanded ? '— less' : '+ more';
-        });
+        if (moreBtn) {
+          moreBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isExpanded = card.classList.toggle('expanded');
+            moreBtn.textContent = isExpanded ? '— less' : '+ more';
+          });
+        }
 
         slider.appendChild(card);
       });

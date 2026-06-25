@@ -48,10 +48,12 @@
 
         document.title = ev.title + ' — BASSTATIC';
         document.getElementById('poster-badge').textContent = day + ' ' + month + ' in ' + ev.venue;
-        document.getElementById('poster-artists').innerHTML = ev.artists.join(' &middot; ');
+        const artistNames = ev.artists.map(a => typeof a === 'string' ? a : a.name);
+        const mcNames = (ev.mc || []).map(a => typeof a === 'string' ? a : a.name);
+        document.getElementById('poster-artists').innerHTML = artistNames.join(' &middot; ');
 
-        if (ev.mc && ev.mc.length) {
-          document.getElementById('poster-mc').innerHTML = ev.mc.join(' &middot; ');
+        if (mcNames.length) {
+          document.getElementById('poster-mc').innerHTML = mcNames.join(' &middot; ');
         }
         document.getElementById('poster-genres').innerHTML = ev.genres.join(' &middot; ');
 

@@ -639,6 +639,32 @@ a {
   border-radius: 3px;
 }
 
+.timetable {
+  max-width: 480px;
+  margin: 24px auto 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.timetable__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-size: 15px;
+}
+
+.timetable__time {
+  color: var(--accent);
+  font-weight: 600;
+  min-width: 64px;
+}
+
+.timetable__act {
+  color: var(--text);
+  text-align: right;
+}
+
 /* ========== MEDIA ========== */
 .media-tabs {
   display: flex;
