@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BASSTATIC x MUNGK &mdash; BASSTATIC</title>
+  <title>BASSTATIC x JOE NICE &mdash; BASSTATIC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Anton&display=swap" rel="stylesheet">
   <link rel="icon" href="/favicon.ico">
   <link rel="stylesheet" href="/style.css?v=3">
+  <style>
+    .hero .hero__poster video { width: 100%; height: auto; display: block; }
+  </style>
 </head>
 <body>
 
@@ -24,8 +27,25 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero__poster">
-      <img src="/media/events/5/poster.jpeg" alt="BASSTATIC x MUNGK" style="width:100%;height:auto;display:block;">
+      <video autoplay muted loop playsinline poster="/media/events/7/poster.webp">
+        <source src="/media/events/7/hero.mp4" type="video/mp4">
+      </video>
     </div>
+  </section>
+
+  <!-- EVENT SUMMARY -->
+  <section class="section" id="event-summary">
+    <h1 class="section__title">BASSTATIC x JOE NICE</h1>
+    <p class="section__text" style="max-width:640px;margin:0 auto;">
+      17 July 2026 &middot; Ash, Nuanu, Bali<br>
+      6 PM till late
+    </p>
+    <p class="section__text" style="max-width:640px;margin:12px auto 0;">
+      Joe Nice returns from the US. Heavyweight bass. Pure soundsystem culture. See you in front of the stacks.
+    </p>
+    <p class="section__text" style="max-width:640px;margin:12px auto 0;color:var(--accent);font-weight:600;">
+      🎟️ Early Bird tickets available this week only.
+    </p>
   </section>
 
   <!-- LINEUP -->
@@ -34,21 +54,14 @@
     <p class="section__sub" id="event-subtitle"></p>
     <div class="lineup-slider" id="lineup-slider"></div>
     <div class="lineup-dots" id="lineup-dots"></div>
+    <p class="section__text" style="max-width:640px;margin:24px auto 0;text-align:center;color:#999;">
+      Joe Nice &middot; Hoda Fadel &middot; Muvs &middot; Roza Mozes &middot; Roba Grow &middot; Vokvi<br>Hosted by MC Nyoman
+    </p>
   </section>
 
-  <!-- CONTENT -->
-  <section class="section" id="content">
-    <h2 class="section__title">Content</h2>
-    <p class="section__sub">Videos and moments from the event.</p>
-
-    <div class="event-content" id="event-content">
-      <p class="media-placeholder">Coming soon.</p>
-    </div>
-  </section>
-
-  <!-- NEXT EVENT -->
-  <section class="section" id="next-event">
-    <h2 class="section__title">Next Event</h2>
+  <!-- TICKETS -->
+  <section class="section" id="tickets">
+    <h2 class="section__title">Tickets</h2>
 
     <div class="event-card event-card--featured">
       <div class="event-card__date">
@@ -59,7 +72,8 @@
         <h3 class="event-card__name">BASSTATIC x JOE NICE</h3>
         <p class="event-card__detail">Nuanu, Ash &middot; Bali</p>
         <p class="event-card__detail">From 6 PM till late</p>
-        <a href="/" class="btn btn--small">View Event</a>
+        <p class="event-card__detail">Dubstep &middot; Deep Dubstep &middot; 140</p>
+        <a href="https://megatix.co.id/events/basstatic-x-joe-nice" target="_blank" rel="noopener" class="btn btn--small">Get Tickets</a>
       </div>
     </div>
   </section>
@@ -69,6 +83,34 @@
     <h2 class="section__title">Past Events</h2>
 
     <div class="lineup-slider" id="events-slider">
+      <a href="/events/6" class="lineup-card" style="text-decoration:none;">
+        <img class="lineup-card__photo" src="/media/events/6/poster.webp" alt="BASSTATIC x SQUAREWAVE">
+        <div class="lineup-card__overlay"></div>
+        <div class="lineup-card__content">
+          <div class="lineup-card__header">
+            <div>
+              <div class="lineup-card__role">26 JUN 2026</div>
+              <div class="lineup-card__name">Squarewave</div>
+            </div>
+            <span class="lineup-card__more">View &rarr;</span>
+          </div>
+          <p class="lineup-card__bio" style="max-height:none;opacity:0.8;margin-top:8px;">Nuanu, Ash &middot; Bali<br>Squarewave &middot; Roba Grow &middot; Vokvi &middot; Muvs &middot; Roza Mozes</p>
+        </div>
+      </a>
+      <a href="/events/5" class="lineup-card" style="text-decoration:none;">
+        <img class="lineup-card__photo" src="/media/events/5/poster.jpeg" alt="BASSTATIC x MUNGK">
+        <div class="lineup-card__overlay"></div>
+        <div class="lineup-card__content">
+          <div class="lineup-card__header">
+            <div>
+              <div class="lineup-card__role">22 MAY 2026</div>
+              <div class="lineup-card__name">Mungk</div>
+            </div>
+            <span class="lineup-card__more">View &rarr;</span>
+          </div>
+          <p class="lineup-card__bio" style="max-height:none;opacity:0.8;margin-top:8px;">Nuanu, Ash &middot; Bali<br>Mungk &middot; Roba Grow &middot; Muvs &middot; Roza Mozes &middot; Vokvi &middot; Dame Bambou &middot; Nyoman MC</p>
+        </div>
+      </a>
       <a href="/events/4" class="lineup-card" style="text-decoration:none;">
         <img class="lineup-card__photo" src="/media/events/4/poster.jpeg" alt="BASSTATIC x JOE NICE">
         <div class="lineup-card__overlay"></div>
