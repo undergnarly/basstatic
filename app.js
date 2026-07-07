@@ -327,14 +327,17 @@ if (form) {
   });
 }
 
-// ========== BACKGROUND MUSIC ==========
+// ========== HERO AUDIO ==========
 const bgMusic = document.getElementById('bg-music');
 const soundToggle = document.getElementById('sound-toggle');
+const heroVideo = document.querySelector('.hero__poster video');
+const soundMedia = heroVideo || bgMusic;
 
-if (bgMusic && soundToggle) {
+if (soundMedia && soundToggle) {
   const iconOff = soundToggle.querySelector('.sound-icon--off');
   const iconOn = soundToggle.querySelector('.sound-icon--on');
   let musicStarted = false;
+  const usingVideoAudio = soundMedia.tagName === 'VIDEO';
 
   const maxVolume = 0.4;
   const fadeDuration = 3000;
@@ -344,14 +347,13 @@ if (bgMusic && soundToggle) {
     let step = 0;
     const interval = setInterval(() => {
       step++;
-      bgMusic.volume = maxVolume * (step / fadeSteps);
+      soundMedia.volume = maxVolume * (step / fadeSteps);
       if (step >= fadeSteps) clearInterval(interval);
     }, fadeDuration / fadeSteps);
   }
 
   // Bass-reactive video zoom
   let audioCtx, analyser, dataArray, source;
-  const heroVideo = document.querySelector('.hero__poster video');
   const heroPoster = document.querySelector('.hero__poster');
   const heroTitle = document.querySelector('.hero__title');
 
@@ -362,7 +364,7 @@ if (bgMusic && soundToggle) {
       analyser = audioCtx.createAnalyser();
       analyser.fftSize = 1024;
       analyser.smoothingTimeConstant = 0.4;
-      source = audioCtx.createMediaElementSource(bgMusic);
+      source = audioCtx.createMediaElementSource(soundMedia);
       source.connect(analyser);
       analyser.connect(audioCtx.destination);
       dataArray = new Uint8Array(analyser.frequencyBinCount);
@@ -414,27 +416,42 @@ if (bgMusic && soundToggle) {
 
   }
 
-  function startMusic() {
+  function setSoundUi(isPlaying) {
+    iconOff.classList.toggle('hidden', isPlaying);
+    iconOn.classList.toggle('hidden', !isPlaying);
+    soundToggle.classList.toggle('playing', isPlaying);
+  }
+
+  async function startMusic() {
     if (musicStarted) return;
-    bgMusic.volume = 0;
-    bgMusic.play().then(() => {
+
+    if (usingVideoAudio) {
+      soundMedia.muted = false;
+      soundMedia.volume = 1;
+    } else {
+      soundMedia.volume = 0;
+    }
+
+    soundMedia.play().then(() => {
       musicStarted = true;
-      fadeIn();
+      if (!usingVideoAudio) fadeIn();
       initBassReactor();
-      iconOff.classList.add('hidden');
-      iconOn.classList.remove('hidden');
-      soundToggle.classList.add('playing');
+      setSoundUi(true);
     }).catch(() => {});
     document.removeEventListener('click', startMusic);
     document.removeEventListener('touchstart', startMusic);
   }
 
-  // Try autoplay immediately
-  startMusic();
+  // For standalone audio pages, try autoplay immediately.
+  if (!usingVideoAudio) {
+    startMusic();
+  }
 
   // Fallback: play on first interaction if browser blocked autoplay
-  document.addEventListener('click', startMusic);
-  document.addEventListener('touchstart', startMusic);
+  if (!usingVideoAudio) {
+    document.addEventListener('click', startMusic);
+    document.addEventListener('touchstart', startMusic);
+  }
 
   soundToggle.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -442,16 +459,21 @@ if (bgMusic && soundToggle) {
       startMusic();
       return;
     }
-    if (bgMusic.paused) {
-      bgMusic.play();
-      iconOff.classList.add('hidden');
-      iconOn.classList.remove('hidden');
-      soundToggle.classList.add('playing');
+
+    if (usingVideoAudio) {
+      const willUnmute = soundMedia.muted;
+      soundMedia.muted = !willUnmute;
+      soundMedia.play().catch(() => {});
+      setSoundUi(willUnmute);
+      return;
+    }
+
+    if (soundMedia.paused) {
+      soundMedia.play();
+      setSoundUi(true);
     } else {
-      bgMusic.pause();
-      iconOn.classList.add('hidden');
-      iconOff.classList.remove('hidden');
-      soundToggle.classList.remove('playing');
+      soundMedia.pause();
+      setSoundUi(false);
     }
   });
 }
