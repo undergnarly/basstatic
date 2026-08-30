@@ -11,9 +11,9 @@
   --bg-input: #161616;
   --border: #222222;
   --text: #e8e8e8;
-  --text-dim: #d9a47c;
-  --accent: #ff9b00;
-  --accent-dim: #d98300;
+  --text-dim: #b8b8b8;
+  --accent: #b9ff4f;
+  --accent-dim: #8fd12f;
   --radius: 12px;
   --radius-sm: 8px;
   --font: 'Space Grotesk', -apple-system, sans-serif;
@@ -168,8 +168,8 @@ a {
 }
 
 @keyframes sound-pulse {
-  0%, 100% { box-shadow: 0 0 8px rgba(255, 155, 0, 0.3); }
-  50% { box-shadow: 0 0 20px rgba(255, 155, 0, 0.7), 0 0 40px rgba(255, 155, 0, 0.2); }
+  0%, 100% { box-shadow: 0 0 8px rgba(185, 255, 79, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(185, 255, 79, 0.7), 0 0 40px rgba(185, 255, 79, 0.2); }
 }
 
 .sound-toggle:hover {
@@ -329,7 +329,7 @@ a {
 
 .event-card--featured {
   border-color: var(--accent);
-  box-shadow: 0 0 40px rgba(255, 155, 0, 0.06);
+  box-shadow: 0 0 40px rgba(185, 255, 79, 0.06);
 }
 
 .event-card__date {
@@ -584,8 +584,8 @@ a {
   font-size: 11px;
   font-weight: 600;
   color: var(--accent);
-  background: rgba(255, 155, 0, 0.12);
-  border: 1px solid rgba(255, 155, 0, 0.25);
+  background: rgba(185, 255, 79, 0.12);
+  border: 1px solid rgba(185, 255, 79, 0.25);
   border-radius: 100px;
   padding: 6px 14px;
   cursor: pointer;
@@ -595,7 +595,7 @@ a {
 }
 
 .lineup-card__more:hover {
-  background: rgba(255, 155, 0, 0.2);
+  background: rgba(185, 255, 79, 0.2);
 }
 
 /* Bio — hidden by default, slides up */
@@ -807,7 +807,7 @@ a {
 
 .form__radio:has(input:checked) {
   border-color: var(--accent);
-  background: rgba(255, 155, 0, 0.08);
+  background: rgba(185, 255, 79, 0.08);
   color: var(--accent);
 }
 
@@ -1007,7 +1007,7 @@ a {
 }
 
 .btn--outline:hover {
-  background: rgba(255, 155, 0, 0.08);
+  background: rgba(185, 255, 79, 0.08);
 }
 
 /* ========== UTILITIES ========== */

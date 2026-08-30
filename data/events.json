@@ -1,5 +1,5 @@
 {
-  "settings": { "activeEventId": 7 },
+  "settings": { "activeEventId": 8 },
   "events": [
     {
       "id": 1,
@@ -418,7 +418,7 @@
     {
       "id": 7,
       "type": "full",
-      "status": "upcoming",
+      "status": "past",
       "title": "BASSTATIC x JOE NICE",
       "subtitle": "Joe Nice returns from the US. 6 PM – 12 AM. Heavyweight bass. Pure soundsystem culture.",
       "date": "2026-07-17",
@@ -484,6 +484,61 @@
       "guestlistEnabled": false,
       "heroVideo": "media/events/7/hero.mp4",
       "posterImage": "media/events/7/poster.webp",
+      "bgMusic": "",
+      "streamRecording": null
+    },
+    {
+      "id": 8,
+      "type": "full",
+      "status": "upcoming",
+      "title": "BASSTATIC x ANNA MORGAN",
+      "subtitle": "Anna Morgan makes her Bali debut. Footwork, jungle, UKG, dancehall and breaks from 6 PM at Block 42.",
+      "date": "2026-09-04",
+      "doorsTime": "18:00",
+      "venue": "Nuanu, Block 42",
+      "location": "Bali",
+      "prices": {
+        "resident": "Rp 100K",
+        "earlyBird": "Rp 140K (sold out)",
+        "presale": "Rp 250K",
+        "door": "Rp 350K"
+      },
+      "artists": [
+        {
+          "name": "Anna Morgan",
+          "role": "DJ / Producer / Curator",
+          "photo": "",
+          "thumb": "",
+          "bio": "New York-born and Chiang Mai-based, Anna Morgan is a DJ, producer and curator with Jamaican and Okinawan roots. Grounded in soundsystem culture, her sets move through footwork, jungle, UK garage, dancehall and breaks. This is her Bali debut."
+        },
+        {
+          "name": "Mairakilla",
+          "role": "DJ",
+          "photo": "",
+          "thumb": "",
+          "bio": "Bali's fast-bass specialist, bringing precise high-BPM selections shaped by gaming culture and restless club energy."
+        },
+        {
+          "name": "Roba Grow",
+          "role": "DJ",
+          "photo": "media/artists/roba.webp",
+          "thumb": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAADwBQCdASoUABoAPxFurVEsJiQisBgMAYAiCWYAnTNkL0E0EFaA/2HRu96kvR2Sfz9aFeAkZryBsAD+6f58DLOrS5SP31AP/KQQEpGzfw3mDUT6GsgW/dURFA2zEFoqR0XO/rljq8ZkWwYW3gPxPUl8R0kDaTyAFTSBNA6CUKMldnRbtm+xUCvnVTInm7Ix6ZEzrz4TDZO0t7AAWbnSRBZco7LVIZ9EvI/13qZIXCJRrHyHEW0bdREjX3r2+lT0GJGo2ASHQAA=",
+          "bio": "Founder of Basstatic. 10+ years behind the decks, delivering modern soundsystem music across dubstep, jungle and drum & bass."
+        },
+        {
+          "name": "Muvs",
+          "role": "DJ / Producer",
+          "photo": "media/artists/muvs.webp",
+          "thumb": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAACQBQCdASoUABoAPxF4sVIsJySisBgIAYAiCWwAv2r2YAAGEltEPXWxnRw5n2doXkK/KxQ7gAD+6Yodp2umDx2IS8joiyFkSm28gGq6tHw30NUxne2TTwz3a+fgl3MAf0P46QuiTtlI+xHQBIMHrhFKvd+e9ZC56vXvmQmHJVOdekn7JTD5bzy+VclhZyWst0S/03qfR4AAAA==",
+          "bio": "Producer and DJ with over a decade of experience, moving between UK garage, dubstep, jungle and drum & bass with deep grooves and unexpected transitions."
+        }
+      ],
+      "mc": [],
+      "genres": ["Footwork", "Jungle", "UK Garage", "Dancehall", "Breaks"],
+      "ticketLink": "https://megatix.co.id/events/basstatic-x-anna-morgan",
+      "guestlistEnabled": false,
+      "heroVideo": "",
+      "posterImage": "media/events/8/poster.webp",
       "bgMusic": "",
       "streamRecording": null
     }

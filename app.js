@@ -24,13 +24,14 @@ async function loadEventData() {
     // Hero media (only on main pages, not on /events/ subpages)
     if (!isEventPage) {
       const heroVideo = document.querySelector('.hero__poster video');
-      if (heroVideo) {
+      if (heroVideo && event.heroVideo) {
         heroVideo.src = '/' + event.heroVideo;
         heroVideo.poster = '/' + event.posterImage;
       }
       const heroImg = document.querySelector('.hero__poster img');
-      if (heroImg && !heroVideo) {
+      if (heroImg) {
         heroImg.src = '/' + event.posterImage;
+        heroImg.alt = event.title;
       }
     }
 
@@ -38,6 +39,8 @@ async function loadEventData() {
     const bgMusic = document.getElementById('bg-music');
     if (bgMusic && event.bgMusic) {
       bgMusic.src = '/' + event.bgMusic;
+    } else if (bgMusic) {
+      bgMusic.removeAttribute('src');
     }
 
     // Artists (now objects with name/role/bio)
@@ -70,7 +73,13 @@ async function loadEventData() {
         heroCta.href = event.ticketLink;
         heroCta.target = '_blank';
         heroCta.rel = 'noopener';
+        heroCta.textContent = 'Get Tickets';
       }
+    }
+
+    const guestlistSection = document.getElementById('guestlist');
+    if (guestlistSection) {
+      guestlistSection.style.display = event.guestlistEnabled ? '' : 'none';
     }
 
     // Event card
@@ -232,15 +241,18 @@ async function loadEventData() {
     const pricesEl = document.getElementById('event-prices');
     if (pricesEl && event.prices) {
       const parts = [];
+      if (event.prices.resident) parts.push('Indonesia Resident: ' + event.prices.resident);
       if (event.prices.earlyBird) parts.push('Early Bird: ' + event.prices.earlyBird);
-      if (event.prices.general) parts.push('GA: ' + event.prices.general);
+      if (event.prices.presale) parts.push('Presale: ' + event.prices.presale);
+      if (event.prices.general) parts.push('General Admission: ' + event.prices.general);
+      if (event.prices.door) parts.push('At the Door: ' + event.prices.door);
       pricesEl.textContent = parts.join(' · ');
     }
 
     // Past events grid
     const grid = document.getElementById('events-grid');
     if (grid) {
-      const pastEvents = data.events.filter(e => e.id !== activeId && e.status === 'past');
+      const pastEvents = data.events.filter(e => e.id !== eventId && e.status === 'past');
       pastEvents.forEach(ev => {
         const d = new Date(ev.date + 'T00:00:00');
         const card = document.createElement('div');
