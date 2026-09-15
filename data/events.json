@@ -1,5 +1,5 @@
 {
-  "settings": { "activeEventId": 8 },
+  "settings": { "activeEventId": 9 },
   "events": [
     {
       "id": 1,
@@ -490,7 +490,7 @@
     {
       "id": 8,
       "type": "full",
-      "status": "upcoming",
+      "status": "past",
       "title": "BASSTATIC x ANNA MORGAN",
       "subtitle": "Anna Morgan makes her Bali debut. Footwork, jungle, UKG, dancehall and breaks from 6 PM at Block 42.",
       "date": "2026-09-04",
@@ -541,6 +541,66 @@
       "posterImage": "media/events/8/poster.webp",
       "bgMusic": "",
       "streamRecording": null
+    },
+    {
+      "id": 9,
+      "type": "full",
+      "status": "upcoming",
+      "title": "BASSTATIC x RASA x DAWN RAZOR",
+      "subtitle": "No genre. Just pressure. Bass, percussion and forward-facing club music at Hue.",
+      "date": "2026-10-16",
+      "doorsTime": "18:00",
+      "venue": "Nuanu, Hue",
+      "location": "Bali",
+      "prices": {},
+      "artists": [
+        {
+          "name": "Rasa",
+          "role": "DJ / Engineer / OneFortyAsia",
+          "photo": "media/artists/rasa.webp",
+          "thumb": "media/artists/rasa-thumb.webp",
+          "bio": "Punjab-born DJ and engineer Rasa turns soundsystem culture into high-energy, genre-crossing sets driven by heavyweight bass and intricate percussion. A founding member of OneFortyAsia and one of Mixmag's Top 25 Breakthrough DJs of 2025, she moves through jungle, drum & bass, grime and electro with instinctive precision."
+        },
+        {
+          "name": "Dawn Razor",
+          "role": "DJ / Producer / Live",
+          "photo": "media/artists/dawn-razor.webp",
+          "thumb": "media/artists/dawn-razor-thumb.webp",
+          "bio": "Dawn Razor is an electronic musician, DJ and producer with more than two decades in music. His catalogue spans R&S, ARTS, Hypercolour, Tronic, Suara and We Are The Brave, while his sets erase the borders between techno, breaks, electro, UK bass and post-trance."
+        },
+        {
+          "name": "Vokvi",
+          "role": "Basstatic Crew",
+          "photo": "media/artists/vokvi.webp",
+          "bio": "A dedicated bass selector known for deep digging and modern, experimental sounds."
+        },
+        {
+          "name": "Roza Mozes",
+          "role": "Basstatic Crew",
+          "photo": "media/artists/roza.webp",
+          "bio": "Dark bass devotee with a 140 BPM backbone, blending grime, halfstep, dub and footwork."
+        },
+        {
+          "name": "Muvs",
+          "role": "Basstatic Crew / Live",
+          "photo": "media/artists/muvs.webp",
+          "bio": "Producer and selector moving between UK garage, dubstep, jungle and drum & bass — with a 30-minute live set built in Ableton and drums."
+        },
+        {
+          "name": "Roba Grow",
+          "role": "Basstatic Crew",
+          "photo": "media/artists/roba.webp",
+          "bio": "Basstatic founder and soundsystem selector, connecting dubstep, jungle and drum & bass."
+        }
+      ],
+      "mc": [],
+      "genres": ["Bass", "Jungle", "Drum and Bass", "Techno", "Breaks", "Electro"],
+      "ticketLink": "",
+      "guestlistEnabled": false,
+      "heroVideo": "",
+      "posterImage": "media/events/9/poster.webp",
+      "bgMusic": "",
+      "streamRecording": "https://youtu.be/SZmeGVPF7qo"
     }
   ]
 }

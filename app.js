@@ -74,6 +74,15 @@ async function loadEventData() {
         heroCta.target = '_blank';
         heroCta.rel = 'noopener';
         heroCta.textContent = 'Get Tickets';
+        heroCta.classList.remove('btn--disabled');
+        heroCta.removeAttribute('aria-disabled');
+      } else {
+        heroCta.href = isEventPage ? '#tickets' : '#events';
+        heroCta.removeAttribute('target');
+        heroCta.removeAttribute('rel');
+        heroCta.textContent = 'Tickets Soon';
+        heroCta.classList.add('btn--disabled');
+        heroCta.setAttribute('aria-disabled', 'true');
       }
     }
 
@@ -107,7 +116,17 @@ async function loadEventData() {
     if (cardBtn && event.ticketLink && !event.guestlistEnabled) {
       cardBtn.href = event.ticketLink;
       cardBtn.target = '_blank';
+      cardBtn.rel = 'noopener';
       cardBtn.textContent = 'Get Tickets';
+      cardBtn.classList.remove('btn--disabled');
+      cardBtn.removeAttribute('aria-disabled');
+    } else if (cardBtn && !event.guestlistEnabled) {
+      cardBtn.href = isEventPage ? '#tickets' : '#events';
+      cardBtn.removeAttribute('target');
+      cardBtn.removeAttribute('rel');
+      cardBtn.textContent = 'Tickets Soon';
+      cardBtn.classList.add('btn--disabled');
+      cardBtn.setAttribute('aria-disabled', 'true');
     }
 
     // Subtitle
@@ -161,7 +180,9 @@ async function loadEventData() {
       allArtists.forEach((artist, i) => {
         const hasBio = Boolean(artist.bio);
         const photoSrc = artist.photo || event.posterImage || '';
-        const thumbSrc = artist.thumb || (photoSrc ? '/' + photoSrc : '');
+        const thumbSrc = artist.thumb
+          ? (artist.thumb.startsWith('/') || artist.thumb.startsWith('data:') ? artist.thumb : '/' + artist.thumb)
+          : (photoSrc ? '/' + photoSrc : '');
         const role = artist.role || 'Artist';
         const moreButton = hasBio ? '<button class="lineup-card__more">+ more</button>' : '';
         const bio = hasBio ? `<p class="lineup-card__bio">${artist.bio}</p>` : '';
